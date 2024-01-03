@@ -38,7 +38,7 @@
 
 <h2 class="terminal-choices" style="color: #0056b3; margin-top: 20px; margin-bottom: 20px;">You get 2 choices for the terminal:</h2>
 <div class="terminal-choices">
-  <img src="https://raw.githubusercontent.com/rudy-in/EndeavourOS-readmd/main/2-choices-only.png" alt="Terminal Choices" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+  <img src="https://raw.githubusercontent.com/rudy-in/endeavouros-readmd/main/2-choices-only.png" alt="Terminal Choices" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
 </div>
 <hr>
 
