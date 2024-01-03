@@ -33,15 +33,24 @@
 <hr>
 
 <h2 class="packages" style="color: #0056b3; margin-top: 20px; margin-bottom: 20px; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Packages Required:</h2>
-<pre style="background-color: #f8f8f8; padding: 10px; border-radius: 5px; overflow: auto;"><code style="color: #d14;">sudo yay -S btop cava wofi neofetch swaylock ttf-fonts-awesome swayidle hyprland</code></pre>
+<pre style="background-color: #f8f8f8; padding: 10px; border-radius: 5px; overflow: auto;"><code style="color: #d14;">sudo yay -S btop cava wofi neofetch swaylock ttf-fonts-awesome swayidle hyprland hyprland-nvidia wlogout</code></pre>
 <hr>
 
 <h2 class="terminal-choices" style="color: #0056b3; margin-top: 20px; margin-bottom: 20px;">You get 2 choices for the terminal:</h2>
 <div class="terminal-choices">
+  
   <img src="https://raw.githubusercontent.com/rudy-in/endeavouros-hyprland/main/2-choices-only.png" alt="Terminal Choices" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
 </div>
 <hr>
-
+<h2 class="nvidia" style="color: #0056b3; margin-top: 20px; margin-bottom: 20px;">For Nvidia Note this:</h2>
+<div class="nvidia">
+  <p>When you have installed EndeavourOS hyprland make sure to press <code>Super + k</code> (For those who don't know super key is the windows key on your keyboard)</p>
+  <img src="https://github.com/rudy-in/endeavouros-hyprland/blob/main/2024-01-03-095817_hyprshot.png"> 
+<p>It will open a popup like this , navigate to Hyprland -> hyprland.conf , scroll down abit and you'll see the nvidia section.</p>
+  <img src="https://github.com/rudy-in/endeavouros-hyprland/blob/main/2024-01-03-100742_hyprshot.png">
+<p>Make sure to uncomment the required scripts :)</p>
+</div>
+<hr>
 <h2 class="images" style="color: #0056b3; margin-top: 20px; margin-bottom: 20px;"></h2>
 <div class="images">
   <img src="https://github.com/EndeavourOS-Community-Editions/hyprland/assets/108489214/b0e22c20-d400-4550-b305-b42e518ffb8e" alt="Group 20" style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
