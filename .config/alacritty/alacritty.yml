@@ -1,0 +1,9 @@
+# ~/.config/alacritty/alacritty.yml
+
+font:
+  normal:
+    family: Monospace
+    style: Regular
+  size: 12.0
+
+background_opacity: 0.8

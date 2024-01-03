@@ -1,0 +1,94 @@
+#!/bin/bash
+
+## Files
+CONFIG="$HOME/.config/wofi/config"
+STYLE="$HOME/.config/wofi/style.css"
+
+
+## Wofi Command
+wofi_command="wofi --show dmenu \
+      --conf ${CONFIG} --style ${STYLE} --color ${COLORS} \
+      --width=350 --height=380 \
+      --cache-file=/dev/null \
+      --hide-scroll --no-actions \
+      --define=matching=fuzzy"
+
+
+notification(){
+# change the icon to whatever you want. Make sure your notification server 
+# supports it and already configured.
+
+# Now it will receive argument so the user can rename the radio title
+# to whatever they want
+
+	notify-send "Playing now: " "$@" --icon=media-tape
+}
+
+menu(){
+  printf "1. Lofi Girl\n"
+  printf "2. Chillhop\n"
+  printf "3. Box Lofi\n"
+  printf "4. The Bootleg Boy\n"
+  printf "5. Radio Spinner\n"
+  printf "6. SmoothChill\n"
+  printf "7. Lofi Zone\n"
+  printf "8. Slam! MixMarathon\n"
+  printf "9. The Boom Room"
+ 
+  
+}
+
+main() {
+  choice=$(menu | ${wofi_command} | cut -d. -f1)
+
+  case $choice in
+    1)
+      notification "Lofi Girl / lofiradio ☕️🎶";
+      mpv "https://play.streamafrica.net/lofiradio"
+      return
+      ;;
+    2)
+      notification "Chillhop ☕️🎶";
+      mpv "http://stream.zeno.fm/fyn8eh3h5f8uv"
+      return
+      ;;
+    3)
+      notification "Box Lofi ☕️🎶";
+      mpv "http://stream.zeno.fm/f3wvbbqmdg8uv"
+      return
+      ;;
+    4)
+      notification ; "The Bootleg Boy ☕️🎶";
+      mpv "http://stream.zeno.fm/0r0xa792kwzuv"
+      return
+      ;;
+    5)
+      notification "Radio Spinner / lofi-hip-hop ☕️🎶";
+      mpv "https://live.radiospinner.com/lofi-hip-hop-64"
+      return
+      ;;
+    6)
+      notification "SmoothChill ☕️🎶";
+      mpv "https://media-ssl.musicradio.com/SmoothChill"
+      return
+      ;;
+    7)
+      notification "Rainy Jazz Cafe / youtube ☕️🎶";
+      mpv --shuffle --ytdl-raw-options="cookies=/tmp/cookies.txt" --vid=no https://www.youtube.com/watch?v=GaW13eDQO6s
+      return
+      ;;
+    8)
+      notification "Slam! MixMarathon ☕️🎶";
+      mpv "https://stream.slam.nl/web13_mp3"
+      return
+      ;;
+    9)
+	  notification "The Boom Room ☕️🎶";
+      mpv "https://stream.slam.nl/web12_mp3"
+	  return
+     ;;
+
+  esac
+}
+
+pkill -f http && notify-send "Lofi Stream" "Lofi Radio stopped" || main
