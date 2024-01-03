@@ -4,6 +4,7 @@ username="$1"
 git clone https://github.com/killajoe/endeavouros-hyprland.git
 cd endeavouros-hyprland
 cp -R .config /home/$username/
+chmod -R +x /home/$username/.config/hypr/scripts
 cp -R .local /home/$username/
 cp -R .icons /home/$username/
 cd ..
