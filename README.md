@@ -33,7 +33,7 @@
 <hr>
 
 <h2 class="packages" style="color: #0056b3; margin-top: 20px; margin-bottom: 20px; background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">Packages Required:</h2>
-<pre style="background-color: #f8f8f8; padding: 10px; border-radius: 5px; overflow: auto;"><code style="color: #d14;">sudo yay -S btop cava wofi neofetch swaylock ttf-font-awesome swayidle hyprland hyprland-nvidia wlogout</code></pre>
+<pre style="background-color: #f8f8f8; padding: 10px; border-radius: 5px; overflow: auto;"><code style="color: #d14;">sudo yay -S btop cava wofi waybar neofetch swaylock ttf-font-awesome swayidle hyprland hyprland-nvidia wlogout</code></pre>
 <hr>
 
 <h2 class="terminal-choices" style="color: #0056b3; margin-top: 20px; margin-bottom: 20px;">You get 2 choices for the terminal:</h2>
