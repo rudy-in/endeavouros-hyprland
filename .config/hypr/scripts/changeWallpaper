@@ -1,0 +1,13 @@
+#!/bin/bash
+
+DIR=~/Pictures/wallpapers-redblizard
+PICS=($(ls ${DIR}))
+
+RANDOMPICS=${PICS[ $RANDOM % ${#PICS[@]} ]}
+
+if [[ $(pidof swaybg) ]]; then
+  pkill swaybg
+fi
+
+notify-send -i ${DIR}/${RANDOMPICS} "Wallpaper Changed" ${RANDOMPICS}
+swaybg -m fill -i ${DIR}/${RANDOMPICS}
