@@ -4,6 +4,7 @@ git clone https://github.com/rudy-in/endeavouros-hyprland.git
 cd endeavouros-hyprland
 cp -R .config /home/$username/
 chmod +x /home/$username/.config/hypr/scripts
+chmod +x /home/$username/.config/hypr/scripts/*.sh
 cp -R .local /home/$username/
 cp -R .icons /home/$username/
 cd ..
