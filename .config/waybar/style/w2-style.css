@@ -61,13 +61,13 @@ tooltip {
 #custom-launcher,
 #custom-settings,
 #custom-brave,
+#custom-themeswitcher,
 #custom-outlook,
 #custom-chatgpt,
 #custum-calulator,
 #custom-language,
 #custom-updates,
 #custom-caffeine,
-#window,
 #clock,
 #battery,
 #custom-cycle_wall,
@@ -75,6 +75,7 @@ tooltip {
 #custom-pipewire,
 #network,
 #custom-traffic,
+##window,
 #workspaces,
 #custom-dunst,
 #tray,
@@ -105,8 +106,9 @@ tooltip {
 #custom-launcher {
     color: #d8dee9;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    border-radius: 10px 0px 0px 10px;
-    padding: 5 5 5 12px;
+    border-radius: 10px 0px 0px 10px;   
+    padding-right: 5px;
+    padding-left: 15px;
     margin-top: 14px;
     margin-bottom: 15px;
     border-left: 5px;
@@ -129,13 +131,28 @@ tooltip {
 
 }
 
-#custom-outlook {
+#custom-themeswitcher {
     color: #d8dee9;
-    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);       
     padding: 5 5 5 10px;
+    padding-right: 10px;
+    padding-left: 10px;
     margin-top: 14px;
     margin-bottom: 15px;
     border-left: 5px;
+    border-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+#custom-outlook {
+    color: #d8dee9;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
+    padding: 5 5 5 10px;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    border-left: 0px;
     border-right: 5px;
     margin-left: 0px;
     margin-right: 0px;
@@ -170,9 +187,10 @@ tooltip {
 
 #custom-calculator {
     color: #d8dee9;
-    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    border: 2px solid #39404f;
-    padding: 5 5 5 10px; 
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);       
+    padding: 5 5 5 10px;
+    padding-right: 5px;
+    padding-left:  5px; 
     margin-top: 14px;
     margin-bottom: 15px; 
     margin-left: 0px;
@@ -217,11 +235,14 @@ tooltip {
     background: #39404f;
     border-radius: 0px 10px 10px 0px;
     padding: 5 5 5 10px;
+    padding-right: 5px;
+    padding-left:  5px; 
     margin-top: 14px;
-    margin-bottom: 15px;
-    border-right: 0px;
+    margin-bottom: 15px; 
     margin-left: 0px;
-    margin-right: 0px;
+    margin-right:  0px;  
+    border-left: 0px;
+    border-right: 0px;
 
     
 }
@@ -236,8 +257,7 @@ tooltip {
     margin-bottom: 15px;
     padding-right: 10px;
     padding-left: 10px;
-    font-family: Cartograph CF Nerd Font, monospace;
-    font-weight: bold;
+
    
     
 }
@@ -252,8 +272,7 @@ tooltip {
     margin-bottom: 15px;
     padding-right: 10px;
     padding-left: 10px;
-    font-family: Cartograph CF Nerd Font, monospace;
-    font-weight: bold;
+
     
 } 
 
@@ -267,8 +286,7 @@ tooltip {
     margin-bottom: 15px;
     padding-right: 10px;
     padding-left: 10px;
-    font-family: Cartograph CF Nerd Font, monospace;
-    font-weight: bold;
+ 
     
 }
 
@@ -315,14 +333,17 @@ tooltip {
 
 #window {
     opacity: 100;
-    background: none;
-    color: #d8dee9;
-    margin-top: 14px;
-    margin-bottom: 15px;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
     border-radius: 10px;
-    border: none;
+    color: #E78284;
+    font-size: 12px;
+    margin-top: 16px;
+    margin-bottom: 17px;    
+    border: 1px;
     margin-left: 60px;
     margin-right: 60px;
+    padding-right: 10px;
+    padding-left: 10px;
     
 }
 
@@ -373,7 +394,7 @@ tooltip {
 #network {
     color: #EF9F76;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    border-radius: 10px 10px 10px 10px;     
+    border-radius: 10px 0px 0px 10px;     
     margin-top: 14px;
     margin-bottom: 15px;
     margin-left: 0px;     
@@ -409,8 +430,8 @@ tooltip {
     margin-right: 0px;     
     border-left: 0px;
     border-right: 0px;
-    padding-right: 5px;
-    padding-left: 5px;    
+    padding-right: 0px;
+    padding-left: 10px;    
 
 }
 
@@ -480,11 +501,12 @@ tooltip {
     margin-top: 14px;
     margin-bottom: 15px;
     margin-left: 0px;
-    margin-right: 5px;    
+    margin-right: 0px;    
     border-left: 0px;
     border-right: 0px;    
-    padding-right: 0px;
+    padding-right: 5px;
     padding-left: 10px;
+
     
 }
     
@@ -497,8 +519,21 @@ tooltip {
 #battery.discharging {
     color: #F38BA8;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+
     
-}     
+}
+
+#battery.warning:not(.charging) {
+    color: #F38BA8;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    animation-name:             blink;
+    animation-duration:         0.5s;
+    animation-timing-function:  linear;
+    animation-iteration-count:  infinite;
+    animation-direction:        alternate;
+    
+}    
+     
 
 #backlight {
     color: #E5C890;   
@@ -542,7 +577,7 @@ tooltip {
     border-left: 0px;
     border-right: 0px;
     padding-right: 15px;
-    padding-left: 15px;
+    padding-left: 13px;
     
     
 }

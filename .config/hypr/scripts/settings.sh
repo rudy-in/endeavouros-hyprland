@@ -14,15 +14,15 @@ while true; do
 
     case $selected_config in
         "1. Hyprland")
-            submenu=$(echo -e "0. Back to main menu\n2. ~/.config/hypr/hyprland.conf\n3. ~/.config/hypr/keybindings.conf" | wofi --dmenu --term=kitty --width=600 --columns 1 -I -s ~/.config/wofi/style.css)
+            submenu=$(echo -e "0. Back to main menu\n1. ~/.config/hypr/hyprland.conf\n2. ~/.config/hypr/keybindings.conf" | wofi --dmenu --term=kitty --width=600 --columns 1 -I -s ~/.config/wofi/style.css)
             echo "Selected submenu: $submenu"
             case $submenu in
                 "0. Back to main menu")
                     echo "Going back to the main menu" ;;
-                "2. ~/.config/hypr/hyprland.conf")
+                "1. ~/.config/hypr/hyprland.conf")
                     echo "Launching nano for hyprland.conf"
                     kitty nano ~/.config/hypr/hyprland.conf ;;
-                "3. ~/.config/hypr/keybindings.conf")
+                "2. ~/.config/hypr/keybindings.conf")
                     echo "Launching keyhint.sh"
                     kitty sh -c "less ~/.config/hypr/keybindings.conf; exec bash" ;;
                 *)
@@ -66,15 +66,4 @@ while true; do
     esac
 done
 
-# waybar gets toggled when esc is pressed
-# Terminate already running bar instances
 
-killall -q waybar
-
-# Wait until the waybar processes have been shut down
-
-while pgrep -x waybar >/dev/null; do sleep 1; done
-
-# Launch main
-
-waybar

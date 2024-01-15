@@ -18,8 +18,8 @@ killall waybar
 # ----------------------------------------------------- 
 if [[ $USER = "denise" ]]
 then
-    waybar -c ~/.config/waybar/w2-config-laptop.jsonc -s ~/.config/waybar/style.css  
-else 
-  waybar &
-fi
+    waybar -c ~/.config/waybar/config.jsonc -s ~/.config/waybar/style.css && 
+else
+    waybar &
+fi 
 

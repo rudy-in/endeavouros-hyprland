@@ -23,11 +23,11 @@ max_temp=$(echo "$temp" | sort -nr | head -n1)
 
 # Print the temperature and the graph
 if [ 1 -eq "$(echo "$max_temp > 70 " | bc)" ]; then
-    printf "<span color='#FD807E'>️☀🌡 $max_temp°C</span>"
+    printf "<span color='#FD807E'>️🌡 $max_temp°C</span>"
 elif [ 1 -eq "$(echo "$max_temp > 50 " | bc)" ]; then
-    printf "<span color='#f5a97f'>❄🌡 $max_temp°C</span>"
+    printf "<span color='#f5a97f'>🌡 $max_temp°C</span>"
 else
-    printf "<span color='#85C1DC'>️❄🌡 $max_temp°C</span>"
+    printf "<span color='#85C1DC'>️🌡 $max_temp°C</span>"
 fi
 
 

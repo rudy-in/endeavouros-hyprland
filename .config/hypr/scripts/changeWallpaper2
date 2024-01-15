@@ -1,34 +1,18 @@
 #!/bin/bash
 
-# Set default wallpaper directory
-DEFAULT_DIR=$HOME/Downloads
-DIR=$DEFAULT_DIR
+DIR=$HOME/Pictures/wallpapers-redblizard/
+PICS=($(ls ${DIR}))
 
-# Check if a custom directory is provided as an argument
-if [ "$#" -eq 1 ]; then
-    DIR="$1"
+RANDOMPICS=${PICS[ $RANDOM % ${#PICS[@]} ]}
 
-    # Check if the provided directory exists
-    if [ ! -d "$DIR" ]; then
-        echo "Error: Wallpaper directory not found: $DIR"
-        exit 1
-    fi
+if [[ $(pidof swaybg) ]]; then
+  pkill swaybg
 fi
 
-# Get a list of pictures in the directory
-PICS=($(ls "${DIR}"))
+swww query || swww init
 
-# Check if there are pictures in the directory
-if [ ${#PICS[@]} -eq 0 ]; then
-  echo "Error: No pictures found in the directory: $DIR"
-  exit 1
-fi
+#change-wallpaper using swww
+swww img ${DIR}/${RANDOMPICS} --transition-step 20 --transition-fps=20
 
-# Select a random picture from the list
-RANDOMPICS=${PICS[$RANDOM % ${#PICS[@]}]}
 
-# Use swww to set the wallpaper
-swww img "${DIR}/${RANDOMPICS}" --transition-step 20 --transition-fps=20
 
-# Exit successfully
-exit 0

@@ -1,10 +1,12 @@
 #!/bin/sh
 
+
 # List of available Waybar configurations
 WAYBAR_CONFIGS=("Desktop" "Laptop")
 
+
 # Use wofi to present the user with a menu
-selected_config=$(printf "%s\n" "${WAYBAR_CONFIGS[@]}" | wofi --dmenu --term=kitty --width=600 --columns 1 -I -s ~/.config/wofi/style.css)
+selected_config=$(printf "%s\n" "${WAYBAR_CONFIGS[@]}" |wofi --dmenu --term=kitty --width=600 --columns 1 -I -s --conf --style ~/.config/wofi/style.css)
 
 
 # Define the paths for the desktop and laptop configurations
@@ -31,6 +33,7 @@ case $selected_config in
     ;;
 esac
 
+# this switches the wallpaper when you swicth from laptop to desktop and from desktop to laptop
 DIR=$HOME/Pictures/wallpapers-redblizard/
 PICS=($(ls ${DIR}))
 
@@ -43,8 +46,7 @@ fi
 swww query || swww init
 
 #change-wallpaper using swww
-swww img ${DIR}/${RANDOMPICS} --transition-step 20 --transition-fps=20
-
+swww img ${DIR}/${RANDOMPICS} --transition-step 20 --transition-fps=20 
 
 # Terminate already running bar instances
 

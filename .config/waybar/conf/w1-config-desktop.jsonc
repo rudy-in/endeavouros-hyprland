@@ -1,5 +1,5 @@
-//------Layout ------------------------------
-{
+//------Layout ------------------------------       
+{      
        "layer": "top",
        "position": "top",
        "mod": "dock",
@@ -11,16 +11,16 @@
        "spacing": 0,
        "margin-top": -2,
        "margin-bottom": 0,
-
+       
     
   //--- Modules ------------------------------
-       "modules-left": ["clock", "custom/launcher", "custom/outlook", "custom/chatgpt", "custom/calculator", "hyprland/workspaces", "cpu", "custom/cputemp", "custom/memory", "custom/settings",],
+       "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/themeswitcher", "custom/outlook", "custom/chatgpt", "custom/calculator", "custom/dunst", "cpu", "custom/cputemp", "custom/memory", "custom/settings",],       
        "modules-center": ["hyprland/window",],
-       "modules-right": ["tray", "custom/caffeine", "custom/updates", "network", "custom/traffic", "custom/language", "custom/cycle_wall", "custom/pipewire", "pulseaudio#microphone", "custom/power",],
+       "modules-right": ["tray", "custom/caffeine", "custom/updates", "network", "custom/traffic", "custom/language", "custom/cycle_wall", "custom/pipewire", "pulseaudio#microphone", "clock", "custom/power",],
        
   "hyprland/window": {  // Module has to be here in the config otherwise it will not work correctly
        "format": "{}",
-       "max-length": 40,
+       "max-length": 35,
                "rewrite": {
             "(.*) - Brave": "$1",
             "(.*) - Brave Search": "$1",
@@ -28,6 +28,15 @@
             "(.*) - Outlook": "$1"
         },
         "separate-outputs": true
+        
+  
+  },
+  "custom/window-name": {
+  "format": "<b>{}</b>",
+  "max-length": 40,
+  "interval": 1,
+  "tooltip": false,
+  "exec": "hyprctl activewindow | grep class | awk '{print $2}' "      
 
        
             
@@ -59,11 +68,12 @@
        }
            
   },
-  "custom/launcher": {
-       "format": "",
+  "custom/launcher": {       
+       "format": "<span font='9'></span>",  
        "on-click": "$HOME/.config/hypr/scripts/menu",
-    // "on-click": "rofi -show drun -theme ~/.config/rofi/global/rofi.rasi",
-       "tooltip-format": "sudo pacman -Q linux",
+       //"on-click": "$HOME/.config/hypr/scripts/rofi-menu",
+       "tooltip-format": "",
+       "signal": 8,
        "tooltip": false
     
   },
@@ -72,6 +82,15 @@
        "format": "",
        "on-click": "brave",
        "tooltip": false
+       
+  },
+  "custom/themeswitcher": {
+       "format": "",
+       "on-click": "$HOME/.config/waybar/scripts/switch-waybar-config.sh",
+       //"on-click": "$HOME/.config/waybar/scripts/switch-rofi-waybar-config.sh",
+       "tooltip-format": "",
+       "signal": 8,
+       "tooltip": false        
     
   },
   // Outlook Launcher
@@ -97,7 +116,7 @@
   },
   // Galculator
   "custom/calculator": {
-       "format": "  ",
+       "format": "<span font='8'> </span>",       
        "on-click": "galculator",
        "tooltip": false
        
@@ -107,32 +126,15 @@
        "format": "",
        "on-click": "~/dotfiles/scripts/looking-glass.sh",
        "tooltip": false
-  
-  },
-  "hyprland/workspaces": {
-       "on-scroll-up": "hyprctl dispatch workspace e+1",
-       "on-scroll-down": "hyprctl dispatch workspace e-1",
-       "only-active": true,
-       "all-outputs": false,
-       "on-click": "activate",
-       "format": "{icon}",
-       "format-icons": {
-          "1": "",
-          "2": "",
-          "3": "",
-          "4": "",
-          "5": "",
-          "6": "",
-          "7": "",
-          "8": "",
-          "9": "",
-          "urgent": "",
-          "focused": "",
-          "default": ""
+
   },  
-  "hyprland/workspaces#blizz": {
+  "hyprland/workspaces": {  
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
     "disable-scroll": true,
+    "only-active": false,
     "all-outputs": true,
+    "on-click": "activate",
     "format": "{icon}",
     "persistent_workspaces": {
       "1": [],
@@ -142,20 +144,22 @@
       "5": [],
       },
     "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "九",
-      "10": "十",
-      }
+          "1": "",
+          "2": "",
+          "3": "",
+          "4": "",
+          "5": "",
+          "6": "",
+          "7": "",
+          "8": "",
+          "9": "",
+     "urgent": "",
+     "focused":"",
+      "default":""
+         
+      
   },
-  "sort-by-number": true,  
-  
+  "sort-by-number": true,    
   
    	},    
     "cpu": {
@@ -220,7 +224,7 @@
         "exec": "~/.config/waybar/scripts/updates.sh",
         "exec-if": "exit 0",
         "interval": 900,      
-        "format": "<span font='9' rise='1000'></span> {}",
+        "format": "<span font='8' rise='1000'></span>{}",
         "on-click": "kitty --title 'Updates' sh -c 'sudo pacman -Syu && yay -Syu --noconfirm && ~/.config/waybar/scripts/updates.sh && pkill -RTMIN+8 waybar'",
         "signal": 8,
         "tooltip": false       
@@ -246,7 +250,9 @@
   },
   "custom/settings": {
        "format": " ",
-       "on-click": "$HOME/.config/hypr/scripts/settings.sh",    
+       "on-click": "$HOME/.config/hypr/scripts/settings.sh",
+       //"on-click": "$HOME/.config/hypr/scripts/rofi-config-settings.sh",
+       "signal": 8,    
        "tooltip-format": "",
        "tooltip": false
      
@@ -255,7 +261,7 @@
   "custom/language": {
       "exec": "cat /tmp/kb_layout",
       "interval": 3,
-      "format": "   {}",
+      "format": "<span font='8'> </span> {} ",
       "on-click": "~/.config/hypr/scripts/switch_kb_layout.sh", 
       "tooltip": true // be carefull when clicking the module
 
@@ -311,8 +317,7 @@
       "format-plugged": " {capacity}%",
       "format-alt": "{time} {icon}",    
       "format-icons": ["", "", "", "", ""],
-      "tooltip": true
- 
+      "tooltip": true 
           
   },
   "backlight": {
@@ -325,8 +330,8 @@
       "min-length": 6
   
   },
-  "custom/cycle_wall":{
-      "format":"  Swww",
+  "custom/cycle_wall":{     
+      "format": "<span font='8'></span> Swww",
       "on-click": "~/.config/hypr/scripts/changeWallpaper2",
       "on-click-right": "azote",
       "tooltip": false
@@ -339,10 +344,17 @@
         
   },    
   "custom/power": {
-      "format": "<span font='11' rise='1000'></span>",
+      "format": "<span font='9' rise='1000'></span>",
       "tooltip": false,
       "on-click": "~/.config/hypr/scripts/logout.sh",
+      
+  },    
+  "custom/space": {
+      "format": "<span font='5' rise='1000'></span>",
+      "tooltip": false,     
       }
 }
 
+
+       
 

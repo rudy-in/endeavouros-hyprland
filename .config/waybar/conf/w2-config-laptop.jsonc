@@ -14,13 +14,13 @@
 
     
   //--- Modules ------------------------------
-       "modules-left": ["clock", "custom/launcher", "custom/outlook", "custom/chatgpt", "custom/calculator", "hyprland/workspaces", "cpu", "custom/cputemp", "custom/memory", "custom/settings",],
+       "modules-left": ["clock", "custom/launcher", "custom/themeswitcher", "custom/outlook", "custom/chatgpt", "custom/calculator", "hyprland/workspaces", "cpu", "custom/cputemp", "custom/memory", "custom/settings",],
        "modules-center": ["hyprland/window",],
        "modules-right": ["tray", "custom/caffeine", "custom/updates", "network", "custom/traffic", "custom/language", "custom/cycle_wall", "custom/pipewire", "pulseaudio#microphone", "battery", "backlight", "custom/power",],
        
   "hyprland/window": {  // Module has to be here in the config otherwise it will not work correctly
        "format": "{}",
-       "max-length": 40,
+       "max-length": 35,
                "rewrite": {
             "(.*) - Brave": "$1",
             "(.*) - Brave Search": "$1",
@@ -59,11 +59,12 @@
        }
            
   },
-  "custom/launcher": {
-       "format": "",
+  "custom/launcher": {       
+       "format": "<span font='9'></span>",  
        "on-click": "$HOME/.config/hypr/scripts/menu",
-    // "on-click": "rofi -show drun -theme ~/.config/rofi/global/rofi.rasi",
-       "tooltip-format": "sudo pacman -Q linux",
+       //"on-click": "$HOME/.config/hypr/scripts/rofi-menu",
+       "tooltip-format": "",
+       "signal": 8,
        "tooltip": false
     
   },
@@ -72,6 +73,15 @@
        "format": "",
        "on-click": "brave",
        "tooltip": false
+  
+  },
+  "custom/themeswitcher": {
+       "format": "",
+       "on-click": "$HOME/.config/waybar/scripts/switch-waybar-config.sh",
+       //"on-click": "$HOME/.config/waybar/scripts/switch-rofi-waybar-config.sh",
+       "tooltip-format": "",
+       "signal": 8,
+       "tooltip": false      
     
   },
   // Outlook Launcher
@@ -97,7 +107,7 @@
   },
   // Galculator
   "custom/calculator": {
-       "format": "  ",
+       "format": "<span font='8'> </span>",       
        "on-click": "galculator",
        "tooltip": false
        
@@ -129,30 +139,6 @@
           "urgent": "",
           "focused": "",
           "default": ""
-  },  
-  "hyprland/workspaces#blizz": {
-    "disable-scroll": true,
-    "all-outputs": true,
-    "format": "{icon}",
-    "persistent_workspaces": {
-      "1": [],
-      "2": [],
-      "3": [],
-      "4": [],
-      "5": [],
-      },
-    "format-icons": {
-      "1": "一",
-      "2": "二",
-      "3": "三",
-      "4": "四",
-      "5": "五",
-      "6": "六",
-      "7": "七",
-      "8": "八",
-      "9": "九",
-      "10": "十",
-      }
   },
   "sort-by-number": true,          
  
@@ -161,8 +147,8 @@
     "cpu": {
     "interval": 1,
     "on-click": "~/.config/waybar/scripts/cpu.sh --popup",
-    "on-click-right": "missioncenter",
-    "format": "<span font='10'></span> Cpu {icon0}{icon1}{icon2}{icon3} {usage:>2}% ",
+    "on-click-right": "kitty glances",
+    "format": "<span font='9'></span> Cpu {icon0}{icon1}{icon2}{icon3} {usage:>2}% ",
     "tooltip": false,
     "format-icons": [
         "<span color='#8CAAEE'>▁</span>", // blue
@@ -207,7 +193,7 @@
       "exec": "(checkupdates ; yay -Qua --noconfirm) | wc -l",
       "exec-if": "exit 0", 
       "interval": 900,
-      "format": "<span font='9' rise='1000'></span> {}",
+      "format": "<span font='8' rise='1000'></span> {}",
       "on-click": "kitty --title 'Updates' sh -c 'sudo pacman -Syu && yay -Syu --noconfirm && ~/.config/waybar/scripts/uparch.sh && pkill -RTMIN+8 waybar'",
       "signal": 8,
       "tooltip": false
@@ -243,7 +229,9 @@
   },
   "custom/settings": {
        "format": " ",
-       "on-click": "$HOME/.config/hypr/scripts/settings.sh",    
+       "on-click": "$HOME/.config/hypr/scripts/settings.sh",
+       //"on-click": "$HOME/.config/hypr/scripts/rofi-config-settings.sh",
+       "signal": 8,    
        "tooltip-format": "",
        "tooltip": false
      
@@ -252,7 +240,7 @@
   "custom/language": {
       "exec": "cat /tmp/kb_layout",
       "interval": 3,
-      "format": "   {}",
+      "format": "<span font='8'> </span> {} ",
       "on-click": "~/.config/hypr/scripts/switch_kb_layout.sh", 
       "tooltip": true // be carefull when clicking the module
 
@@ -295,35 +283,44 @@
       "on-scroll-up": "pamixer --default-source -i 5",
       "on-scroll-down": "pamixer --default-source -d 5",
       "scroll-step": 5
-    
-  },
-  "battery": {
-      "states": {
-      "good": 95,
-      "warning": 30,
-      "critical": 20
-  },
-      "format": "{icon}  {capacity}%",
-      "format-charging": " {capacity}%",
-      "format-plugged": " {capacity}%",
-      "format-alt": "{time} {icon}",    
-      "format-icons": ["", "", "", "", ""],
+   
+   }, 
+    "battery": {
+      "exec": "~/.config/waybar/scripts/battery.sh",      
+      "interval": 60,  // Adjust the interval as needed
+      "return-type": "json",
+      "format": "{icon} {capacity}%",
+      "format-charging": "{icon} Charging {capacity}%",
+      "format-plugged": "{icon} Plugged {capacity}%",
+      "format-alt": "{time} {icon}",
+      "format-icons": [
+      "<span font='8'></span>",
+      "<span font='8'></span>",
+      "<span font='8'></span>",
+      "<span font='8'></span>",
+      "<span font='8'></span>"
+      ],     
       "tooltip": true
- 
-          
-  },
+   
+
+  },    
   "backlight": {
-      "device": "intel_backlight",
-      "format": "{icon} {percent}%",
-      "format-icons": ["", "", ""],
-      "on-scroll-up": "brightnessctl set 1%+",
-      "on-scroll-down": "brightnessctl set 1%-",
-      "tooltip": false,
-      "min-length": 6
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "<span font='9'></span>",
+      "<span font='9'></span>",
+      "<span font='9'></span>",
+    ],
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "tooltip": false,
+    "min-length": 6
+    
   
   },
-  "custom/cycle_wall":{
-      "format":"  Swww",
+  "custom/cycle_wall":{     
+      "format": "<span font='8'></span> Swww",
       "on-click": "~/.config/hypr/scripts/changeWallpaper2",
       "on-click-right": "azote",
       "tooltip": false
@@ -336,7 +333,7 @@
         
   },    
   "custom/power": {
-      "format": "<span font='11' rise='1000'></span>",
+      "format": "<span font='9' rise='1000'></span>",
       "tooltip": false,
       "on-click": "~/.config/hypr/scripts/logout.sh",
       }
