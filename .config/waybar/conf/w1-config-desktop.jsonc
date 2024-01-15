@@ -1,0 +1,360 @@
+//------Layout ------------------------------       
+{      
+       "layer": "top",
+       "position": "top",
+       "mod": "dock",
+       "exclusive": true,
+       "output": ["HDMI-A-1", "eDP-1", "DP-0", "DP-1",], // Which Monitor waybar opens on        
+       "passtrough": false,
+       "gtk-layer-shell": true,
+       "height": -14,       
+       "spacing": 0,
+       "margin-top": -2,
+       "margin-bottom": 0,
+       
+    
+  //--- Modules ------------------------------
+       "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/themeswitcher", "custom/outlook", "custom/chatgpt", "custom/calculator", "custom/dunst", "cpu", "custom/cputemp", "custom/memory", "custom/settings",],       
+       "modules-center": ["hyprland/window",],
+       "modules-right": ["tray", "custom/caffeine", "custom/updates", "network", "custom/traffic", "custom/language", "custom/cycle_wall", "custom/pipewire", "pulseaudio#microphone", "clock", "custom/power",],
+       
+  "hyprland/window": {  // Module has to be here in the config otherwise it will not work correctly
+       "format": "{}",
+       "max-length": 35,
+               "rewrite": {
+            "(.*) - Brave": "$1",
+            "(.*) - Brave Search": "$1",
+            "(.*) - fish": "> [$1]",
+            "(.*) - Outlook": "$1"
+        },
+        "separate-outputs": true
+        
+  
+  },
+  "custom/window-name": {
+  "format": "<b>{}</b>",
+  "max-length": 40,
+  "interval": 1,
+  "tooltip": false,
+  "exec": "hyprctl activewindow | grep class | awk '{print $2}' "      
+
+       
+            
+  },
+  "clock": {
+       "format":  "{: %H:%M  %a,%d %b}",
+       "format-alt":  "{: %H:%M }",
+       "tooltip-format": "<tt><small>{calendar}</small></tt>",
+       "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#A6D189'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#E5C890'><b>{}</b></span>",
+                              "today":      "<span color='#E78284'><b><u>{}</u></b></span>"
+       }
+  },
+  "actions":  {
+       "on-click-right": "mode",
+       "on-click-forward": "tz_up",
+       "on-click-backward": "tz_down",
+       "on-scroll-up": "shift_up",
+       "on-scroll-down": "shift_down"
+       }
+           
+  },
+  "custom/launcher": {       
+       "format": "<span font='9'></span>",  
+       "on-click": "$HOME/.config/hypr/scripts/menu",
+       //"on-click": "$HOME/.config/hypr/scripts/rofi-menu",
+       "tooltip-format": "",
+       "signal": 8,
+       "tooltip": false
+    
+  },
+  // Brave Launcher
+  "custom/brave": {
+       "format": "",
+       "on-click": "brave",
+       "tooltip": false
+       
+  },
+  "custom/themeswitcher": {
+       "format": "",
+       "on-click": "$HOME/.config/waybar/scripts/switch-waybar-config.sh",
+       //"on-click": "$HOME/.config/waybar/scripts/switch-rofi-waybar-config.sh",
+       "tooltip-format": "",
+       "signal": 8,
+       "tooltip": false        
+    
+  },
+  // Outlook Launcher
+  "custom/outlook": {
+       "format": "",
+       "on-click": "brave --app=https://outlook.com",
+       "tooltip": false
+       
+  },
+  // Teams Launcher
+  "custom/teams": {
+       "format": "",
+       "on-click": "brave --app=https://teams.microsoft.com/go",
+       "tooltip": false
+       
+  },
+  // ChatGPT Launcher
+  "custom/chatgpt": {
+       "format": "",
+       "on-click": "brave --app=https://chat.openai.com",
+       "tooltip": false
+       
+  },
+  // Galculator
+  "custom/calculator": {
+       "format": "<span font='8'> </span>",       
+       "on-click": "galculator",
+       "tooltip": false
+       
+  },
+  // Looking Glass Launcher
+  "custom/lookingglass": {
+       "format": "",
+       "on-click": "~/dotfiles/scripts/looking-glass.sh",
+       "tooltip": false
+
+  },  
+  "hyprland/workspaces": {  
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "disable-scroll": true,
+    "only-active": false,
+    "all-outputs": true,
+    "on-click": "activate",
+    "format": "{icon}",
+    "persistent_workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      },
+    "format-icons": {
+          "1": "",
+          "2": "",
+          "3": "",
+          "4": "",
+          "5": "",
+          "6": "",
+          "7": "",
+          "8": "",
+          "9": "",
+     "urgent": "",
+     "focused":"",
+      "default":""
+         
+      
+  },
+  "sort-by-number": true,    
+  
+   	},    
+    "cpu": {
+    "interval": 1,
+    "on-click": "~/.config/waybar/scripts/cpu.sh --popup",
+    "on-click-right": "missioncenter",
+    "format": "<span font='9'></span> Cpu {icon0}{icon1}{icon2}{icon3} {usage:>2}% ",
+    "tooltip": false,
+    "format-icons": [
+        "<span color='#8CAAEE'>▁</span>", // blue
+        "<span color='#99D1DB'>▂</span>", // sky
+        "<span color='#A6D189'>▃</span>", // green
+        "<span color='#A6D189'>▄</span>", // green
+        "<span color='#E5C890'>▅</span>", // yellow
+        "<span color='#E5C890'>▆</span>", // yellow
+        "<span color='#EF9F76'>▇</span>", // orange
+        "<span color='#E78284'>█</span>"  // red
+    ] 
+  
+  
+  },
+  "custom/cputemp":{
+       "exec": "~/.config/waybar/scripts/temperature",
+       "interval": 1,
+       "tooltip": false,
+       "on-click": "~/.config/waybar/scripts/cpu-temp.sh --popup",
+       "on-click-right": "~/.config/waybar/scripts/btop.sh",  
+
+          
+  },      
+  "custom/memory":{  
+       "exec": "~/.config/waybar/scripts/free-mem.sh",
+       "interval": 1,
+       "tooltip": false,
+       "on-click": "~/.config/waybar/scripts/htop.sh",     
+           
+  },
+  "tray": {
+       "icon-size": 13,
+       "spacing": 10,
+       "tooltip": false,
+
+  },  
+  "custom/caffeine": {
+      "exec": "cat /tmp/waybar_caffeine_fifo",
+      "return-type": "json",
+      "interval": 3,
+      "on-click": "~/.config/waybar/scripts/toggle_caffeine.sh",
+      
+//  },
+//  "custom/updates": {
+//      "exec": "(checkupdates ; yay -Qua --noconfirm) | wc -l",
+//      "exec-if": "exit 0", 
+//      "interval": 900,
+//      "format": "<span font='10' rise='1000'></span> {}",
+//      "on-click": "kitty --title 'Updates' sh -c 'sudo pacman -Syu && yay -Syu --noconfirm && ~/.config/waybar/scripts/uparch.sh && pkill -RTMIN+8 waybar'",
+//      "signal": 8,
+//      "tooltip": false
+      
+   },    
+   "custom/updates": {
+        "exec": "~/.config/waybar/scripts/updates.sh",
+        "exec-if": "exit 0",
+        "interval": 900,      
+        "format": "<span font='8' rise='1000'></span>{}",
+        "on-click": "kitty --title 'Updates' sh -c 'sudo pacman -Syu && yay -Syu --noconfirm && ~/.config/waybar/scripts/updates.sh && pkill -RTMIN+8 waybar'",
+        "signal": 8,
+        "tooltip": false       
+        
+  },
+  "network": {
+      "format-wifi": "<span font='9' rise='1000'> </span> {essid} ",
+      "format-ethernet": "<span font='10' rise='1000'> </span> Eth ",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": " Disconnected",
+      "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+      "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",      
+      "on-click": "~/.config/waybar/scripts/networkmanager.sh",
+      "on-click-right": "nm-connection-editor",
+      "interval": 5
+  },    
+  "custom/traffic": {
+      "exec": "~/.config/waybar/scripts/network_traffic.sh enp3s0",
+      //"return-type": "json",
+      //"format": " Speed: {}",    // optional
+   
+  
+  },
+  "custom/settings": {
+       "format": " ",
+       "on-click": "$HOME/.config/hypr/scripts/settings.sh",
+       //"on-click": "$HOME/.config/hypr/scripts/rofi-config-settings.sh",
+       "signal": 8,    
+       "tooltip-format": "",
+       "tooltip": false
+     
+
+  },
+  "custom/language": {
+      "exec": "cat /tmp/kb_layout",
+      "interval": 3,
+      "format": "<span font='8'> </span> {} ",
+      "on-click": "~/.config/hypr/scripts/switch_kb_layout.sh", 
+      "tooltip": true // be carefull when clicking the module
+
+  },    
+  "custom/pipewire": {
+      "tooltip": false,
+      "max-length": 8,
+      "exec": "$HOME/.config/waybar/scripts/pipewire.sh", // script cause higher cpuload and higher cpu-temp
+      "on-click": "~/.config/hypr/scripts/volume_ctl.sh mute",      
+      "on-click-right": "kitty --class update -T update -e pulsemixer",
+      "tooltip": false
+    
+  },
+  "pulseaudio": {
+      "format": "{icon} {volume}%",
+      "format-muted": "ﱝ Muted",
+      "tooltip": true,
+      "on-click": "~/.config/hypr/scripts/volume_ctl.sh mute",
+      "on-click-right": "kitty --class update -T update -e pulsemixer",
+      "scroll-step": 1,
+      "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", "墳", ""]
+      }   
+          
+  },
+  "pulseaudio#microphone": {
+      "format": "{format_source}",
+      "tooltip": true,
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+      "format-source": " {volume}%",
+      "format-source-muted": " Muted",
+      "on-click": "pamixer --default-source -t",
+      "on-scroll-up": "pamixer --default-source -i 5",
+      "on-scroll-down": "pamixer --default-source -d 5",
+      "scroll-step": 5
+    
+  },
+  "battery": {
+      "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+  },
+      "format": "{icon}   {capacity}%",
+      "format-charging": " {capacity}%",
+      "format-plugged": " {capacity}%",
+      "format-alt": "{time} {icon}",    
+      "format-icons": ["", "", "", "", ""],
+      "tooltip": true 
+          
+  },
+  "backlight": {
+      "device": "intel_backlight",
+      "format": "{icon} {percent}%",
+      "format-icons": ["", "", ""],
+      "on-scroll-up": "brightnessctl set 1%+",
+      "on-scroll-down": "brightnessctl set 1%-",
+      "tooltip": false,
+      "min-length": 6
+  
+  },
+  "custom/cycle_wall":{     
+      "format": "<span font='8'></span> Swww",
+      "on-click": "~/.config/hypr/scripts/changeWallpaper2",
+      "on-click-right": "azote",
+      "tooltip": false
+  },    
+  "custom/dunst": {
+    "exec": "~/.config/waybar/scripts/notifications",
+    "on-click": "dunstctl set-paused toggle",
+    "restart-interval": 1,
+           
+        
+  },    
+  "custom/power": {
+      "format": "<span font='9' rise='1000'></span>",
+      "tooltip": false,
+      "on-click": "~/.config/hypr/scripts/logout.sh",
+      
+  },    
+  "custom/space": {
+      "format": "<span font='5' rise='1000'></span>",
+      "tooltip": false,     
+      }
+}
+
+
+       
+

@@ -1,0 +1,583 @@
+/*
+ * __        __          _                  ____  _         _       
+ * \ \      / /_ _ _   _| |__   __ _ _ __  / ___|| |_ _   _| | ___  
+ *  \ \ /\ / / _` | | | | '_ \ / _` | '__| \___ \| __| | | | |/ _ \ 
+ *   \ V  V / (_| | |_| | |_) | (_| | |     ___) | |_| |_| | |  __/ 
+ *    \_/\_/ \__,_|\__, |_.__/ \__,_|_|    |____/ \__|\__, |_|\___| 
+ *                 |___/                              |___/         
+ *  
+ * by Redblizard (2023) 
+ * ----------------------------------------------------- 
+*/
+
+/* -----------------------------------------------------
+ * Import Pywal colors 
+ * ----------------------------------------------------- */
+@import 'colors-waybar.css';
+
+/* -----------------------------------------------------
+ * General 
+ * ----------------------------------------------------- */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: FontAwesome6, redblizard001, Roboto, Helvetica, monospace, sans-serif;
+    font-weight: bold;
+    font-size: 12px;    
+    padding: 0;
+    min-height: 0;
+    margin: -2;    
+
+}
+
+window#waybar {
+    background-color: rgba(46, 52, 64, 0.4);
+    transition-property: background-color;    
+    transition-duration: .5s;
+}
+
+
+window#waybar.hidden {
+    opacity: 0.5;
+        
+}
+
+window#waybar.empty #window {  
+ background:none;  
+
+    
+}
+
+tooltip {
+    background: #39404f;
+    border-radius: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #FD807E;
+    
+}
+
+#custom-launcher,
+#custom-settings,
+#custom-brave,
+#custom-themeswitcher,
+#custom-outlook,
+#custom-chatgpt,
+#custum-calulator,
+#custom-language,
+#custom-updates,
+#custom-caffeine,
+#clock,
+#battery,
+#custom-cycle_wall,
+#pulseaudio,
+#custom-pipewire,
+#network,
+#custom-traffic,
+##window,
+#workspaces,
+#custom-dunst,
+#tray,
+#custom-power,
+#backlight {
+    background: #39404f;
+    padding: 0px 10px;
+    margin: 3px 0px;
+    border: 2px solid #39404f; 
+        
+}
+
+#clock {
+    color: #CA9EE6;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    border-radius: 10px;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    border-left: 5px;
+    border-right: 5px;
+    margin-left: 15px;
+    margin-right: 0px;
+    padding-right: 10px;
+    padding-left: 10px;
+    
+}
+
+#custom-launcher {
+    color: #d8dee9;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    border-radius: 10px 0px 0px 10px;   
+    padding-right: 5px;
+    padding-left: 15px;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    border-left: 5px;
+    border-right: 5px;
+    margin-left: 5px;
+    margin-right: 0px;
+
+}
+
+#custom-brave {
+    color: #d8dee9;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
+    padding: 5 5 5 10px;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    border-left: 5px;
+    border-right: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+#custom-themeswitcher {
+    color: #d8dee9;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);       
+    padding: 5 5 5 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    border-left: 5px;
+    border-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+#custom-outlook {
+    color: #d8dee9;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
+    padding: 5 5 5 10px;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    border-left: 0px;
+    border-right: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+#custom-teams {
+    color: #d8dee9;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
+    padding: 5 5 5 10px;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    border-left: 5px;
+    border-right: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+#custom-chatgpt {
+    color: #d8dee9;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
+    padding: 5 5 5 10px;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    border-left: 5px;
+    border-right: 5px;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+#custom-calculator {
+    color: #d8dee9;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);       
+    padding: 5 5 5 10px;
+    padding-right: 5px;
+    padding-left:  5px; 
+    margin-top: 14px;
+    margin-bottom: 15px; 
+    margin-left: 0px;
+    margin-right:  0px;  
+    border-left: 0px;
+    border-right: 0px;
+
+
+}
+
+#workspaces button {
+    padding: 5px;
+    color: #858383;
+    margin-right: 5px;
+}
+
+#workspaces button.active {
+    color: #FF7F7F;
+}
+
+#workspaces button.focused {
+    color: #FF7F7F;
+    background: #39404f;
+    border-radius: 10px;
+}
+
+#workspaces button.urgent {
+    color: #FF7F7F;
+    background: #39404f;
+    border-radius: 10px;
+}
+
+#workspaces button:hover {
+    background: #39404f;    
+    color: #7f7fff;
+    border-radius: 1px;
+   
+}
+
+#workspaces {
+    color: #d8dee9;
+    background: #39404f;
+    border-radius: 0px 10px 10px 0px;
+    padding: 5 5 5 10px;
+    padding-right: 5px;
+    padding-left:  5px; 
+    margin-top: 14px;
+    margin-bottom: 15px; 
+    margin-left: 0px;
+    margin-right:  0px;  
+    border-left: 0px;
+    border-right: 0px;
+
+    
+}
+
+#cpu {
+    color: #8CAAEE;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);       
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 0px;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+
+   
+    
+}
+
+#custom-cputemp {
+    color: #85C1DC;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 0px;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+
+    
+} 
+
+#custom-memory {
+    color: #81C8BE;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    padding-right: 10px;
+    padding-left: 10px;
+ 
+    
+}
+
+#custom-settings {
+    color: #d8dee9;
+    background: none;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-right: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 0px;
+    padding-left: 2px;
+    border: none;
+
+}   
+
+#taskbar {
+    border-radius: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    color: #000000;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    border-left: 10px;
+    border-right: 10px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#taskbar button {
+    border-radius: 8px 8px 8px 8px;
+    padding: 0 0 0 8px;
+    margin: 0px 2;
+    margin-left: 0px;
+    color: #000000;    
+    background: #39404f;
+    
+}
+#taskbar button.active {
+    background: #39404f;
+             
+}
+
+#window {
+    opacity: 100;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    border-radius: 10px;
+    color: #E78284;
+    font-size: 12px;
+    margin-top: 16px;
+    margin-bottom: 17px;    
+    border: 1px;
+    margin-left: 60px;
+    margin-right: 60px;
+    padding-right: 10px;
+    padding-left: 10px;
+    
+}
+
+#tray {    
+    background: none;
+    border-radius: 10px;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 5px;
+    border: none;     
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+
+}
+
+#custom-caffeine {
+    color: #F2D5CF;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    border-radius: 10px 0px 0px 10px;     
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;     
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 0px;
+    padding-left: 10px;
+
+}
+
+#custom-updates {
+    color: #EEBEBE;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    border-radius: 0px 10px 10px 0px; 
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 5px;     
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 10px;
+    padding-left: 10px;  
+
+}
+
+#network {
+    color: #EF9F76;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    border-radius: 10px 0px 0px 10px;     
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;     
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 0px;
+    padding-left: 10px;
+
+  
+}
+#custom-traffic {
+    color: #E78284;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    border-radius: 0px 10px 10px 0px; 
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 5px;     
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 10px;
+    padding-left: 5px; 
+
+}
+
+#custom-language {
+    color: #BA5DEE;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    border-radius: 10px 0px 0px 10px; 
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 0px;     
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 0px;
+    padding-left: 10px;    
+
+}
+
+#custom-cycle_wall {
+    color: #CA9EE6;   
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%); 
+    border-radius: 0px 10px 10px 0px; 
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 5px;     
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 10px;
+    padding-left: 5px;
+    
+    
+}
+
+#custom-pipewire {
+    color: #7CB6F5;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    border-radius: 10px 0px 0px 10px; 
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;     
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 5px;
+    padding-left: 10px;
+
+
+}
+
+#pulseaudio {
+    color: #7CB6F5;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;     
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 5px;
+    padding-left: 10px;
+
+}
+
+#pulseaudio.microphone {
+    color: #85C1DC;  
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    border-radius: 0px 10px 10px 0px; 
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 5px;     
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 10px;
+    padding-left: 5px;   
+
+}
+
+#battery {
+    color: #95D189;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%); 
+    border-radius: 10px 0px 0px 10px;    
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 0px;    
+    border-left: 0px;
+    border-right: 0px;    
+    padding-right: 5px;
+    padding-left: 10px;
+
+    
+}
+    
+#battery.charging {
+    color: #fab387;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    
+}
+
+#battery.discharging {
+    color: #F38BA8;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+
+    
+}
+
+#battery.warning:not(.charging) {
+    color: #F38BA8;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    animation-name:             blink;
+    animation-duration:         0.5s;
+    animation-timing-function:  linear;
+    animation-iteration-count:  infinite;
+    animation-direction:        alternate;
+    
+}    
+     
+
+#backlight {
+    color: #E5C890;   
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%); 
+    border-radius: 0px 10px 10px 0px; 
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 5px;     
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 10px;
+    padding-left: 10px;
+    
+}
+
+#custom-dunst {
+    color: #F5D8A0;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%); 
+    border-radius: 10px 0px 0px 10px;    
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 0px;    
+    border-left: 0px;
+    border-right: 0px;    
+    padding-right: 0px;
+    padding-left: 10px;
+    
+    
+}
+
+#custom-power {
+    color: #E78284;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%); 
+    border-radius: 10px;
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 15px;     
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 15px;
+    padding-left: 13px;
+    
+    
+}
