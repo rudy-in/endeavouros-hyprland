@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [[ ! $(pidof rofi) ]]; then
+  rofi -show drun -theme ~/.config/rofi/global/rofi.rasi
+else
+  pkill rofi
+fi
+
+# Terminate already running bar instances
+
+killall -q waybar
+
+# Wait until the waybar processes have been shut down
+
+while pgrep -x waybar >/dev/null; do sleep 1; done
+
+# Launch main
+
+waybar
