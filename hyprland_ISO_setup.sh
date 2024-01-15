@@ -47,3 +47,6 @@ rm hypr_packages.list
 clear
 echo "Installation complete Welcome to your new destiny!"
 cd /
+
+sleep 30 
+reboot
