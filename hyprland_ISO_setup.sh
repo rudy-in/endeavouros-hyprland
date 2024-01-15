@@ -43,8 +43,6 @@ cp -R .icons /home/$username/
 cd ..
 rm -rf endeavouros-hyprland
 chown -R $username:$username /home/$username
-wget https://raw.githubusercontent.com/rudy-in/endeavouros-hyprland/main/hypr_packages.list
-pacman -S --needed --noconfirm - < hypr_packages.list
 rm hypr_packages.list
 clear
 echo "Installation complete Welcome to your new destiny!"
