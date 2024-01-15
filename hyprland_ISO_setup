@@ -2,6 +2,36 @@
 username="$1"
 git clone https://github.com/rudy-in/endeavouros-hyprland.git
 cd endeavouros-hyprland
+PACKAGES=(
+    btop
+    cava
+    wofi
+    waybar
+    neofetch
+    swaylock
+    ttf-font-awesome
+    awesome-terminal-fonts
+    otf-font-awesome
+    swayidle
+    hyprland
+    wlogout
+    swww
+    kitty
+    qt5ct
+    thunar
+    thunar-archive-plugin
+    thunar-volman
+    sddm
+    eos-sddm-theme
+    xdg-desktop-portal-hyprland
+    xed
+    mpv
+)
+
+# Install packages
+sudo pacman -S --noconfirm "${PACKAGES[@]}"
+
+echo "Installation complete."
 cp -R .config /home/$username/
 chmod +x /home/$username/.config/hypr/scripts
 chmod +x /home/$username/.config/hypr/scripts/*.sh
@@ -17,4 +47,6 @@ chown -R $username:$username /home/$username
 wget https://raw.githubusercontent.com/rudy-in/endeavouros-hyprland/main/hypr_packages.list
 pacman -S --needed --noconfirm - < hypr_packages.list
 rm hypr_packages.list
+clear
+echo "Installation complete Welcome to your new destiny!"
 cd /
