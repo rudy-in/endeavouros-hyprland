@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-username="$1"
+username="$USER"
 cd endeavouros-hyprland
 PACKAGES=(
     btop
