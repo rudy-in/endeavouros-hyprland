@@ -47,7 +47,7 @@
   <img src="https://github.com/rudy-in/endeavouros-hyprland/blob/main/2024-01-03-095817_hyprshot.png"> 
 <p>It will open a popup like this , navigate to Hyprland -> hyprland.conf , scroll down abit and you'll see the nvidia section.</p>
   <img src="https://github.com/rudy-in/endeavouros-hyprland/blob/main/2024-01-03-100742_hyprshot.png">
-<p>Make sure to uncomment the required scripts :)</p>
+<p>Make sure to uncomment the required scripts and dont forget to place a comment in front of the following line env=WLR_NO_HARDWARE_CURSORS=1 :)</p>
 </div>
 <hr>
 <h2 class="images" style="color: #0056b3; margin-top: 20px; margin-bottom: 20px;"></h2>
