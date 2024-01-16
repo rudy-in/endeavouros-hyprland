@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR=$HOME/Pictures/wallpapers-redblizard/
+DIR=$HOME/Downloads
 PICS=($(ls ${DIR}))
 
 RANDOMPICS=${PICS[ $RANDOM % ${#PICS[@]} ]}
