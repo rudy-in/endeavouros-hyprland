@@ -25,6 +25,7 @@ PACKAGES=(
     xdg-desktop-portal-hyprland
     xed
     mpv
+    xdg-desktop-portal
 )
 
 # Install packages
