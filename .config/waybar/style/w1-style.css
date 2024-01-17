@@ -412,10 +412,11 @@ tooltip {
 #network {
     color: #EF9F76;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    border-radius: 10px 0px 0px 10px;     
+    border-radius: 10px 10px 10px 10px;     
     margin-top: 14px;
     margin-bottom: 15px;
-    margin-left: 0px;     
+    margin-left: 0px;
+    margin-right: 5px;     
     border-left: 0px;
     border-right: 0px;
     padding-right: 0px;

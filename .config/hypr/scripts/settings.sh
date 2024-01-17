@@ -1,7 +1,7 @@
 #!/bin/bash
 
 while true; do
-    main_menu="1. Hyprland\n2. Waybar configs\n3. Waybar style options"
+    main_menu="1. Hyprland\n2. Waybar configs\n3. Waybar style options\n4. Swww options"
     selected_config=$(echo -e "$main_menu" | wofi --dmenu --term=kitty --width=600 --columns 1 -I -s ~/.config/wofi/style.css)
     
     # Check if the escape key was pressed
@@ -61,9 +61,26 @@ while true; do
                     echo "Invalid submenu selection: $submenu" ;;
             esac
             ;;
+        "4. Swww options")
+            submenu=$(echo -e "0. Back to main menu\n1. Kill swww\n2. Change Wallpaper Directory\n3. Initialize swww" | wofi --dmenu --term=kitty --width=600 --columns 1 -I -s ~/.config/wofi/style.css)
+            echo "Selected submenu: $submenu"
+            case $submenu in
+                "0. Back to main menu")
+                    echo "Going back to the main menu" ;;
+                "1. Kill swww")
+                     echo "Killing swww"
+                     pkill swww ;;
+                "2. Change Wallpaper Directory")
+                    echo "Launching nano for changeWallpaper2"
+                    kitty nano ~/.config/hypr/scripts/changeWallpaper2 ;;
+                "3. Initialize swww")
+                    echo "Initializing swww"
+                    swww init ;;
+                *)
+                    echo "Invalid submenu selection: $submenu" ;;
+            esac
+            ;;
         *)
             echo "Invalid selection: $selected_config" ;;
     esac
 done
-
-
