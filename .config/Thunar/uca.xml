@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+<action>
+	<icon>utilities-terminal</icon>
+	<name>Open terminal here</name>
+	<submenu></submenu>
+	<unique-id>1674085652297962-1</unique-id>
+	<command>/usr/bin/kitty %f</command>
+	<description>Open terminal in current folder</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<directories/>
+</action>
+<action>
+	<icon>accessories-text-editor</icon>
+	<name>Edit file as ROOT</name>
+	<submenu></submenu>
+	<unique-id>1693935588813769-2</unique-id>
+	<command>geany admin:%f</command>
+	<description>Edit file as ROOT</description>
+	<range>*</range>
+	<patterns>*</patterns>
+	<text-files/>
+</action>
+<action>
+	<icon>meld</icon>
+	<name>Compare</name>
+	<submenu></submenu>
+	<unique-id>1674085868018168-3</unique-id>
+	<command>meld %F</command>
+	<description></description>
+	<range>*</range>
+	<patterns>*</patterns>
+</action>
+</actions>
