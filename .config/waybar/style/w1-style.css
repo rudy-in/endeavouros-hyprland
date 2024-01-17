@@ -424,10 +424,11 @@ tooltip {
 
   
 }
+
 #custom-traffic {
     color: #E78284;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    border-radius: 0px 10px 10px 0px; 
+    border-radius: 10px;
     margin-top: 14px;
     margin-bottom: 15px;
     margin-left: 0px;
@@ -435,7 +436,7 @@ tooltip {
     border-left: 0px;
     border-right: 0px;
     padding-right: 10px;
-    padding-left: 5px; 
+    padding-left: 10px; 
 
 }
 
