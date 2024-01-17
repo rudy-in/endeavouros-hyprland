@@ -2,15 +2,21 @@
 username="$USER"
 cd endeavouros-hyprland
 PACKAGES=(
+    alacritty
     btop
+    htop
+    brave-bin
     cava
+    glances
+    git
     wofi
     waybar
     neofetch
-    swaylock
+    swaylock-effects-git
     ttf-font-awesome
     awesome-terminal-fonts
-    otf-font-awesome
+    nwg-look
+    otf-font-awesome    
     swayidle
     hyprland
     wlogout
@@ -26,10 +32,39 @@ PACKAGES=(
     xed
     mpv
     xdg-desktop-portal
+    yay
 )
+
 
 # Install packages
 sudo pacman -S --noconfirm "${PACKAGES[@]}"
+
+# ------------------------------------------------------
+# Install brave
+# ------------------------------------------------------
+if yay -S --noconfirm brave-bin; then
+    echo "Brave successfully installed."
+
+    # Check if brave is in the PATH
+    if command -v brave &> /dev/null; then
+        # Set Brave as the default browser
+        echo "export BROWSER=brave" | sudo tee -a /etc/environment
+        xdg-settings set default-web-browser brave.desktop
+        echo "Brave set as the default browser."
+    else
+        echo "Error: Brave not found in the PATH."
+    fi
+else
+    echo "Error: Failed to install Brave."
+fi
+
+# ------------------------------------------------------
+# Install swaylock-effects-git
+# ------------------------------------------------------
+
+if yay -S --noconfirm swaylock-effects-git; then
+    echo "swaylock-effects-git successfully installed."
+
 
 echo "Installation complete."
 cp -R .config /home/$username/
