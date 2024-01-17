@@ -12,7 +12,7 @@ PACKAGES=(
     wofi
     waybar
     neofetch
-    swaylock-effects-git
+    swaylock-effects
     ttf-font-awesome
     awesome-terminal-fonts
     nwg-look
@@ -82,10 +82,10 @@ else
 fi
 
 # ------------------------------------------------------
-# Install swaylock-effects-git
+# Install swaylock-effects
 # ------------------------------------------------------
-if yay -S --noconfirm swaylock-effects-git; then
-    echo "swaylock-effects-git successfully installed."
+if yay -S --noconfirm swaylock-effects; then
+    echo "swaylock-effects successfully installed."
     echo "Installation complete."
 fi
 

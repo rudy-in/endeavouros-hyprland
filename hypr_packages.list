@@ -1,23 +1,31 @@
-btop
-cava
-wofi
-waybar
-neofetch
-swaylock
-ttf-font-awesome
-awesome-terminal-fonts
-otf-font-awesome
-swayidle
-hyprland
-wlogout
-swww
-kitty
-qt5ct
-thunar
-thunar-archive-plugin
-thunar-volman
-sddm
-eos-sddm-theme
-xdg-desktop-portal-hyprland
-xed
-mpv
+    alacritty
+    btop
+    htop
+    brave-bin
+    cava
+    glances
+    git
+    wofi
+    waybar
+    neofetch
+    swaylock-effects-git
+    ttf-font-awesome
+    awesome-terminal-fonts
+    nwg-look
+    otf-font-awesome    
+    swayidle
+    hyprland
+    wlogout
+    swww
+    kitty
+    qt5ct
+    thunar
+    thunar-archive-plugin
+    thunar-volman
+    sddm
+    eos-sddm-theme
+    xdg-desktop-portal-hyprland
+    xed
+    mpv
+    xdg-desktop-portal
+    yay
