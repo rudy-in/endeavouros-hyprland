@@ -46,7 +46,7 @@
 <h2 class="nvidia" style="color: #0056b3; margin-top: 20px; margin-bottom: 20px;">For Nvidia Note this:</h2>
 <div class="nvidia">
   <p>When you have installed EndeavourOS hyprland make sure to press <code>Super + k</code> (For those who don't know super key is the windows key on your keyboard)</p>
-  <img src="https://github.com/rudy-in/endeavouros-hyprland/blob/main/2024-01-03-095817_hyprshot.png"> 
+  <img src="https://github.com/rudy-in/endeavouros-hyprland/blob/main/83dc69b2-88e7-4768-81c7-f03fcd72fdf7.jpeg"> 
 <p>It will open a popup like this , navigate to Hyprland -> hyprland.conf , scroll down abit and you'll see the nvidia section.</p>
   <img src="https://github.com/rudy-in/endeavouros-hyprland/blob/main/2024-01-03-100742_hyprshot.png">
 <p>Make sure to uncomment the required ENV lines and dont forget to place a comment in front of the following line #env=WLR_NO_HARDWARE_CURSORS=1 :)</p>
