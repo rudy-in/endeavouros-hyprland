@@ -15,7 +15,7 @@ PACKAGES=(
     swaylock-effects
     ttf-font-awesome
     awesome-terminal-fonts
-    nwg-look
+    nwg-look-bin
     otf-font-awesome    
     swayidle
     hyprland
@@ -86,6 +86,14 @@ fi
 # ------------------------------------------------------
 if yay -S --noconfirm swaylock-effects; then
     echo "swaylock-effects successfully installed."
+    echo "Installation complete."
+fi
+
+# ------------------------------------------------------
+# Install nwg-look-bin
+# ------------------------------------------------------
+if yay -S --noconfirm nwg-look-bin; then
+    echo "nwg-look-bin successfully installed."
     echo "Installation complete."
 fi
 
