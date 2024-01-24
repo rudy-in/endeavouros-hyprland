@@ -1,16 +1,34 @@
 #!/bin/bash
 
-entries="⭮ Reboot\n⏻ Shutdown\n⇠ Logout\n⏾ Suspend"
+CONFIG="$HOME/.config/wofi/config"
+STYLE="$HOME/.config/wofi/style.css"
 
-selected=$(echo -e $entries|wofi --width 250 --height 260 --dmenu --hide_search=true --hide-scroll --cache-file /dev/null | awk '{print tolower($2)}')
+entries=("⭮  Reboot" "⇠  Logout" "  Lock" "⏻  Shutdown" "⏾  Suspend")
 
-case $selected in
-  logout)
-    exec hyprctl dispatch exit NOW;;
-  suspend)
-    exec systemctl suspend;;
-  reboot)
-    exec systemctl reboot;;
-  shutdown)
-    exec systemctl poweroff -i;;
-esac
+selected=$(printf "%s\n" "${entries[@]}" | wofi --dmenu --hide_search=true --prompt=Choose... --term=kitty --width=600 --columns 1 -I -s ~/.config/wofi/style.css)
+
+if [ -n "$selected" ]; then
+    case "$selected" in
+        *"Reboot")
+            systemctl reboot
+            ;;
+        *"Shutdown")
+            systemctl poweroff
+            ;;
+        *"Logout")
+            hyprctl dispatch exit 0 && hyprctl exec swaymsg exec /usr/bin/sddm-greeter
+            ;;
+        *"Suspend")
+            systemctl suspend
+            ;;
+        *"Lock")
+            eval "$HOME/.config/hypr/scripts/lock.sh"
+            ;;
+        *)
+            echo "Invalid action: $selected"
+            exit 1
+            ;;
+    esac
+else
+    pkill wofi
+fi
