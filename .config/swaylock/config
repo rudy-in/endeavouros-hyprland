@@ -1,39 +1,39 @@
+# indicator
+# no-unlock-indicator
 daemonize
 hide-keyboard-layout
-show-failed-attempts
-clock
-screenshot
-effect-blur=15x15
-effect-vignette=1:1
-color=1f1d2e80
-font="Inter"
-indicator
-indicator-radius=200
-indicator-thickness=20
-line-color=1f1d2e
-ring-color=191724
-inside-color=1f1d2e
-key-hl-color=eb6f92
-separator-color=00000000
-text-color=e0def4
-text-caps-lock-color=""
-line-ver-color=eb6f92
-ring-ver-color=eb6f92
-inside-ver-color=1f1d2e
-text-ver-color=e0def4
-ring-wrong-color=31748f
-text-wrong-color=31748f
+indicator-caps-lock
+# datestr=%A
+image=$HOME/.config/hypr/swaylock.png
+scaling=fill
+font=UbuntuMono
+font-size=20
+# Ring
+indicator-radius=167
+indicator-thickness=23
+# line-uses
+line-color=#1f1d2e
+text-color=#d8dee9
+inside-color=#2e344098
+text-wrong-color=#FD807E
 inside-wrong-color=1f1d2e
+ring-wrong-color=#FD807E
+line-wrong-color=#FD807E
+inside-ver-color=1f1d2e
+ring-ver-color=#7f7fff
+text-ver-color=#7f7fff
 inside-clear-color=1f1d2e
-text-clear-color=e0def4
-ring-clear-color=9ccfd8
-line-clear-color=1f1d2e
-line-wrong-color=1f1d2e
-bs-hl-color=31748f
+text-clear-color=#5e81ac
+ring-clear-color=#5e81ac
+ring-color=#A24D6A
+key-hl-color=#5e81ac
+separator-color=00000000
+layout-text-color=#eceff4
+line-wrong-color=#1f1d2e
 grace=2
-grace-no-mouse
-grace-no-touch
-datestr=%a, %B %e
-timestr=%I:%M %p
-fade-in=0.3
-ignore-empty-password
+grace-no=mouse
+grace-no=touch
+ignore-empty=password
+
+
+
