@@ -1,13 +1,12 @@
 #!/bin/bash
-sleep 1
-killall -e xdg-desktop-portal-hyprland
-killall -e xdg-desktop-portal-wlr
-killall xdg-desktop-portal
-echo "Starting xdg-desktop-portal-hyprland" >> xdg-desktop-portal-hyprland.log
-/usr/lib/xdg-desktop-portal-hyprland >> xdg-desktop-portal-hyprland.log 2>&1 &
-sleep 2
-/usr/lib/xdg-desktop-portal &
-exec Hyprland &> /tmp/hyprland-$(date +%Y-%m-%d-%H-%M-%S).log
 
+cd ~
 
+# Variables
+export _JAVA_AWT_WM_NONREPARENTING=1
+export XCURSOR_SIZE=24
 
+sleep 4
+# start hyprland
+kitty -c echo "Starting Hyprland" >> /tmp/hyprland-$(date +%Y-%m-%d-%H-%M-%S).log
+exec /usr/bin/Hyprland &> /tmp/hyprland-$(date +%Y-%m-%d-%H-%M-%S).log

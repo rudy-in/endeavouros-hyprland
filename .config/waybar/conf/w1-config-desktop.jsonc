@@ -95,7 +95,7 @@
   },
   // Outlook Launcher
   "custom/outlook": {
-       "format": "",
+       "format": "",
        "on-click": "brave --app=https://outlook.com",
        "tooltip": false
        
@@ -207,7 +207,8 @@
       "exec": "cat /tmp/waybar_caffeine_fifo",
       "return-type": "json",
       "interval": 3,
-      "on-click": "~/.config/waybar/scripts/toggle_caffeine.sh",
+      //"on-click": "~/.config/waybar/scripts/toggle_caffeine.sh", // this script works with swaylock-effects
+      "on-click": "~/.config/waybar/scripts/caffeine_swaylock.sh", // this script works with swaylock
       
 //  },
 //  "custom/updates": {
@@ -335,18 +336,19 @@
       "on-click": "~/.config/hypr/scripts/changeWallpaper2",
       "on-click-right": "azote",
       "tooltip": false
+      
   },    
   "custom/dunst": {
     "exec": "~/.config/waybar/scripts/notifications",
     "on-click": "dunstctl set-paused toggle",
-    "restart-interval": 1,
-           
+    "restart-interval": 1,           
         
   },    
   "custom/power": {
-      "format": "<span font='9' rise='1000'></span>",
-      "tooltip": false,
+      "format": "<span font='9' rise='1000'></span>",      
       "on-click": "~/.config/hypr/scripts/logout.sh",
+      "signal": 8,
+      "tooltip": false,
       
   },    
   "custom/space": {

@@ -12,6 +12,15 @@ window {
     
 }
 
+#input {
+    margin: 20px;
+    padding: 5px 15px;    
+    color: white;
+    background-color: #2E3440;
+   	outline: none;
+    border-radius: 8px;
+    
+}
 
 #placeholder {
   color: #ffffff;

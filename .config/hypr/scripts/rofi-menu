@@ -1,5 +1,10 @@
-#!/bin/sh
-wlogout --protocol layer-shell -b 5 -T 400 -B 400
+#!/bin/bash
+
+if [[ ! $(pidof rofi) ]]; then
+  rofi -show drun -theme ~/.config/rofi/global/rofi.rasi
+else
+  pkill rofi
+fi
 
 # Terminate already running bar instances
 

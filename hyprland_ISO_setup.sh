@@ -12,11 +12,11 @@ PACKAGES=(
     wofi
     waybar
     neofetch
-    swaylock-effects
-    ttf-font-awesome
+    network-manager-applet
+    networkmanager-dmenu-bluetoothfix-git
+    swaylock    
     awesome-terminal-fonts
-    nwg-look-bin
-    otf-font-awesome    
+    nwg-look-bin       
     swayidle
     hyprland
     wlogout
@@ -81,18 +81,19 @@ else
     echo "Error: Failed to install Brave."
 fi
 
-# ------------------------------------------------------
-# Install swaylock-effects
-# ------------------------------------------------------
-if yay -S --noconfirm swaylock-effects; then
-    echo "swaylock-effects successfully installed."
-    echo "Installation complete."
-fi
 
 # ------------------------------------------------------
 # Install nwg-look-bin
 # ------------------------------------------------------
 if yay -S --noconfirm nwg-look-bin; then
+    echo "nwg-look-bin successfully installed."
+    echo "Installation complete."
+fi
+
+# ------------------------------------------------------
+# Install networkmanager-dmenu-bluetoothfix-git
+# ------------------------------------------------------
+if yay -S --noconfirm networkmanager-dmenu-bluetoothfix-git; then
     echo "nwg-look-bin successfully installed."
     echo "Installation complete."
 fi

@@ -6,7 +6,6 @@ run-always_parse_args=true
 show=drun
 matching=fuzzy
 prompt=Search...
-hide_search=true
 lines=12
 filter_rate=100
 allow_markup=true

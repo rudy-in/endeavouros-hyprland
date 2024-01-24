@@ -6,7 +6,7 @@ WAYBAR_CONFIGS=("Desktop" "Laptop")
 
 
 # Use wofi to present the user with a menu
-selected_config=$(printf "%s\n" "${WAYBAR_CONFIGS[@]}" |wofi --dmenu --term=kitty --width=600 --columns 1 -I -s --conf --style ~/.config/wofi/style.css)
+selected_config=$(printf "%s\n" "${WAYBAR_CONFIGS[@]}" |wofi --dmenu --prompt=Choose... --term=kitty --width=600 --columns 1 -I -s --conf --style ~/.config/wofi/style.css)
 
 
 # Define the paths for the desktop and laptop configurations

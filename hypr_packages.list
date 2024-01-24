@@ -8,11 +8,11 @@
     wofi
     waybar
     neofetch
-    swaylock-effects-git
-    ttf-font-awesome
+    network-manager-applet
+    networkmanager-dmenu-bluetoothfix-git
+    swaylock    
     awesome-terminal-fonts
-    nwg-look
-    otf-font-awesome    
+    nwg-look-bin       
     swayidle
     hyprland
     wlogout

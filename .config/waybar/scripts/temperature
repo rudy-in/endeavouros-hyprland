@@ -23,22 +23,22 @@ close(SENSORS);
 $temperature eq -9999 and die 'Cannot find temperature';
 
 # Set default label and color
-my $label = '🌡';
+my $label = '';
 my $color = '#85C1DC';  # Default color is blue
 
 # Change label and color based on temperature
 if ($temperature < 45) {
-    $label = '🌡';
+    $label = '';
     $color = '#85C1DC';  # Blue color
 } elsif ($temperature < 55) {
-    $label = '🌡';
+    $label = '';
     $color = '#f5a97f';  # Orange color
 } elsif ($temperature < 65) {
-    $label = '🌡';
+    $label = '';
     $color = '#f5a97f';  # Orange color
 #    # Color remains blue by default
 } elsif ($temperature < 75) {
-    $label = '🌡';
+    $label = '';
     $color = '#FD807E';  # Red color
 }
 
