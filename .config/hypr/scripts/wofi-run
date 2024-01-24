@@ -1,0 +1,10 @@
+#!/bin/bash
+
+CONFIG="$HOME/.config/hypr/launcher/config"
+STYLE="$HOME/.config/hypr/launcher/style.css"
+
+if [[ ! $(pidof wofi) ]]; then
+  wofi --show run --allow-images=true --filter-rate=100 --matching=fuzzy --term=kitty --width=950 --columns 3 -I -c "$CONFIG" -s "$STYLE"
+else
+  pkill wofi
+fi
