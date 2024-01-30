@@ -10,4 +10,4 @@ while pgrep -x waybar >/dev/null; do sleep 1; done
 
 # Launch main
 
-waybar
+waybar &
