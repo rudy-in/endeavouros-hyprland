@@ -9,6 +9,7 @@
   <li><strong style="color: #0056b3;">Developer:</strong> Oleksandr Macedonsky</li>
   <li><strong style="color: #0056b3;">Developer:</strong> qt (name may change over time)</li>
   <li><strong style="color: #0056b3;">Mentoring:</strong> joekamprad</li>
+  <li><strong style="color: #0056b3;">Contributor</strong> bitterhalt</li>
 </ul>
 <hr>
 
