@@ -19,7 +19,6 @@ PACKAGES=(
     hyprland
     wlogout
     swww
-    kitty
     qt5ct
     thunar
     thunar-archive-plugin
@@ -95,6 +94,36 @@ echo "Installing $browser..."
 yay -S $browser
 
 echo "Installation complete!"
+
+# --------------------------------------------------
+# Install a terminal
+# --------------------------------------------------
+
+echo "Select a terminal to install:"
+echo "1. Alacritty"
+echo "2. Kitty"
+
+
+read -p "Enter the number corresponding to your choice: " choice
+
+case $choice in
+    1)
+        terminal="alacritty"
+        ;;
+    2)
+        terminal="kitty"
+        ;;
+    *)
+        echo "Invalid choice. Exiting."
+        exit 1
+        ;;
+esac
+
+echo "Installing $terminal..."
+yay -S $terminal
+
+echo "Installation complete!"
+
 
 # ------------------------------------------------------
 # Install nwg-look-bin
