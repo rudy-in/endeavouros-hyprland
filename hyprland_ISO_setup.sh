@@ -2,10 +2,8 @@
 username="$USER"
 cd endeavouros-hyprland
 PACKAGES=(
-    alacritty
     btop
     htop
-    brave-bin
     cava
     glances
     git
@@ -62,25 +60,41 @@ backup() {
 # Install packages
 sudo pacman -S --noconfirm "${PACKAGES[@]}"
 
-# ------------------------------------------------------
-# Install brave
-# ------------------------------------------------------
-if yay -S --noconfirm brave-bin; then
-    echo "Brave successfully installed."
+# --------------------------------------------------
+# Install a browser
+# --------------------------------------------------
 
-    # Check if brave is in the PATH
-    if command -v brave &> /dev/null; then
-        # Set Brave as the default browser
-        echo "export BROWSER=brave" | sudo tee -a /etc/environment
-        xdg-settings set default-web-browser brave.desktop
-        echo "Brave set as the default browser."
-    else
-        echo "Error: Brave not found in the PATH."
-    fi
-else
-    echo "Error: Failed to install Brave."
-fi
+echo "Select a browser to install:"
+echo "1. Chromium"
+echo "2. Firefox"
+echo "3. Brave"
+echo "4. Microsoft Edge"
 
+read -p "Enter the number corresponding to your choice: " choice
+
+case $choice in
+    1)
+        browser="chromium"
+        ;;
+    2)
+        browser="firefox"
+        ;;
+    3)
+        browser="brave-bin"
+        ;;
+    4)
+        browser="microsoft-edge-dev-bin"
+        ;;
+    *)
+        echo "Invalid choice. Exiting."
+        exit 1
+        ;;
+esac
+
+echo "Installing $browser..."
+yay -S $browser
+
+echo "Installation complete!"
 
 # ------------------------------------------------------
 # Install nwg-look-bin
