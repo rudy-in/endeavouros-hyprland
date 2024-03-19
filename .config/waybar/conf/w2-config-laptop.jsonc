@@ -33,10 +33,10 @@
             
   },
   "clock": {
-       "format":  "{: %H:%M  %a,%d %b}",
-       "format-alt":  "{: %H:%M }",
-       "tooltip-format": "<tt><small>{calendar}</small></tt>",
-       "calendar": {
+        "format": " {:%R  %a,%d %b} ",
+        "format-alt": " {:%H:%M} ",        
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
                     "mode"          : "year",
                     "mode-mon-col"  : 3,
                     "weeks-pos"     : "right",
@@ -48,7 +48,15 @@
                               "weeks":      "<span color='#A6D189'><b>W{}</b></span>",
                               "weekdays":   "<span color='#E5C890'><b>{}</b></span>",
                               "today":      "<span color='#E78284'><b><u>{}</u></b></span>"
-       }
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
   },
   "actions":  {
        "on-click-right": "mode",
