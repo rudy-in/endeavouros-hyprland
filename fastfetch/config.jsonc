@@ -1,0 +1,57 @@
+{
+    "logo": {
+        "type": "builtin",
+        "source": "redhat"
+    },
+    "modules": [
+        "title",
+        "separator",
+        {
+            "type": "os",
+            "format": "Red Hat Enterprise Linux ({12})"
+        },
+        "host",
+        "break",
+        {
+            "type": "custom", // HardwareStart
+            "format": "┌─────────── \u001b[1mHardware Information\u001b[0m ───────────┐"
+        },
+        "break",
+        "cpu",
+        "gpu",
+        {
+            "type": "memory",
+            "format": "{/1}{-}{/}{/2}{-}{/}{} / {}"
+        },
+        {
+            "type": "disk",
+            "format": "{?2}{2}{?}"
+        },
+        "break",
+        {
+            "type": "custom",
+            "format": "├─────────── \u001b[1mSoftware Information\u001b[0m ───────────┤"
+        },
+        "break",
+        "kernel",
+        "uptime",
+        {
+            "type": "packages",
+            "format": "{} (pacman)"
+        },
+        "shell",
+        "display",
+        "de",
+        "locale",
+        {
+            "type": "custom", // InformationEnd
+            "format": "└────────────────────────────────────────────┘"
+        },
+        "break",
+        {
+            "type": "colors",
+            "paddingLeft": 6,
+            "symbol": "circle"
+        }
+    ]
+}

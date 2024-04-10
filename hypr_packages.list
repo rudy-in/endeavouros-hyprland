@@ -1,13 +1,12 @@
     alacritty
     btop
     htop
-    brave-bin
     cava
     glances
     git
     wofi
     waybar
-    neofetch
+    fastfetch
     network-manager-applet
     networkmanager-dmenu-bluetoothfix-git
     swaylock    

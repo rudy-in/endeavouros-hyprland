@@ -9,7 +9,7 @@ PACKAGES=(
     git
     wofi
     waybar
-    neofetch
+    fastfetch
     network-manager-applet
     networkmanager-dmenu-bluetoothfix-git
     swaylock    
@@ -147,7 +147,7 @@ fi
 
 # Backup and copy .config folder
 
-folders=("alacritty" "btop" "cava" "dunst" "hypr" "kitty" "neofetch" "networkmanager-dmenu" "qt5ct" "sddm-config-editor" "swaylock" "Thunar" "waybar" "wlogout" "wofi" "xsettingsd" "gtk-3.0")
+folders=("alacritty" "btop" "cava" "dunst" "hypr" "kitty" "fastfetch" "networkmanager-dmenu" "qt5ct" "sddm-config-editor" "swaylock" "Thunar" "waybar" "wlogout" "wofi" "xsettingsd" "gtk-3.0")
 
 for folder in "${folders[@]}"; do
     folder_path="/home/$username/.config/$folder"
