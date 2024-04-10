@@ -12,9 +12,9 @@ PACKAGES=(
     fastfetch
     network-manager-applet
     networkmanager-dmenu-bluetoothfix-git
-    swaylock    
+    swaylock
     awesome-terminal-fonts
-    nwg-look-bin       
+    nwg-look-bin
     swayidle
     hyprland
     wlogout
@@ -72,22 +72,22 @@ echo "4. Microsoft Edge"
 read -p "Enter the number corresponding to your choice: " choice
 
 case $choice in
-    1)
-        browser="chromium"
-        ;;
-    2)
-        browser="firefox"
-        ;;
-    3)
-        browser="brave-bin"
-        ;;
-    4)
-        browser="microsoft-edge-dev-bin"
-        ;;
-    *)
-        echo "Invalid choice. Exiting."
-        exit 1
-        ;;
+1)
+    browser="chromium"
+    ;;
+2)
+    browser="firefox"
+    ;;
+3)
+    browser="brave-bin"
+    ;;
+4)
+    browser="microsoft-edge-dev-bin"
+    ;;
+*)
+    echo "Invalid choice. Exiting."
+    exit 1
+    ;;
 esac
 
 echo "Installing $browser..."
@@ -103,27 +103,25 @@ echo "Select a terminal to install:"
 echo "1. Alacritty"
 echo "2. Kitty"
 
-
 read -p "Enter the number corresponding to your choice: " choice
 
 case $choice in
-    1)
-        terminal="alacritty"
-        ;;
-    2)
-        terminal="kitty"
-        ;;
-    *)
-        echo "Invalid choice. Exiting."
-        exit 1
-        ;;
+1)
+    terminal="alacritty"
+    ;;
+2)
+    terminal="kitty"
+    ;;
+*)
+    echo "Invalid choice. Exiting."
+    exit 1
+    ;;
 esac
 
 echo "Installing $terminal..."
 yay -S $terminal
 
 echo "Installation complete!"
-
 
 # ------------------------------------------------------
 # Install nwg-look-bin
@@ -161,30 +159,30 @@ backup "/home/$username/.local"
 cp -R .local /home/$username/
 
 backup "/home/$username/.icons"
-cp -R .icons /home/$username/    
+cp -R .icons /home/$username/
 
 # ----------------------------------
 #       for neovim setup
 # ----------------------------------
 function install_neovim() {
-    echo "Do you want NeoVim as text-editor:"
+    echo "Do you want NeoVim as text-editor : "
     echo "1. Yes"
     echo "2. No"
 
     read -p "Enter the number corresponding to your choice: " response
 
     case $response in
-        1)
-            nvim="neovim"
-            ;;
-        2)
-            echo "Exiting."
-            return 1
-            ;;
-        *)
-            echo "Invalid choice. Exiting."
-            return 1
-            ;;
+    1)
+        nvim="neovim"
+        ;;
+    2)
+        echo "Exiting."
+        return 1
+        ;;
+    *)
+        echo "Invalid choice. Exiting."
+        return 1
+        ;;
     esac
 
     yay -S $nvim
@@ -193,6 +191,45 @@ function install_neovim() {
 }
 install_neovim
 # -------------------------------------
+
+
+
+# -------------------------------------
+#       shell coices for users
+# -------------------------------------
+
+function shell_choice() {
+    echo "Which shell do you want to use :"
+    echo "1. bash (Already installed)"
+    echo "2. zsh (An extended version of the Bourne Shell)"
+    echo "3. fish (A smart and user-friendly command line shell )"
+
+    read -p "Enter the number corresponding to your choice: " response
+
+    case $response in
+    1)
+        echo "Exiting."
+        return 1
+        ;;
+    2)
+        shell="zsh"
+        ;;
+    3)
+        shell="fish"
+        ;;
+    *)
+        echo "Invalid choice. Exiting."
+        return 1
+        ;;
+    esac
+    yay -S $shell
+    chsh -s /bin/$shell
+    echo "Successfully installed and changed to $shell shell."
+}
+shell_choice
+
+# -------------------------------------
+
 
 echo "Installation complete."
 chmod +x /home/$username/.config/hypr/scripts
@@ -212,5 +249,5 @@ clear
 echo "Installation complete Welcome to your new destiny!"
 cd /
 
-sleep 30 
+sleep 30
 reboot
