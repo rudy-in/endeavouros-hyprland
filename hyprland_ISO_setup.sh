@@ -163,6 +163,37 @@ cp -R .local /home/$username/
 backup "/home/$username/.icons"
 cp -R .icons /home/$username/    
 
+# ----------------------------------
+#       for neovim setup
+# ----------------------------------
+function install_neovim() {
+    echo "Do you want NeoVim as text-editor:"
+    echo "1. Yes"
+    echo "2. No"
+
+    read -p "Enter the number corresponding to your choice: " response
+
+    case $response in
+        1)
+            nvim="neovim"
+            ;;
+        2)
+            echo "Exiting."
+            return 1
+            ;;
+        *)
+            echo "Invalid choice. Exiting."
+            return 1
+            ;;
+    esac
+
+    yay -S $nvim
+    git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+    echo "REMINDER : After reboot open terminal and type nvim for post installation of neovim"
+}
+install_neovim
+# -------------------------------------
+
 echo "Installation complete."
 chmod +x /home/$username/.config/hypr/scripts
 chmod +x /home/$username/.config/hypr/scripts/*.sh
