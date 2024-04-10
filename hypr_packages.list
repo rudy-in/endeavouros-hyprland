@@ -9,9 +9,9 @@
     fastfetch
     network-manager-applet
     networkmanager-dmenu-bluetoothfix-git
-    swaylock    
+    swaylock
     awesome-terminal-fonts
-    nwg-look-bin       
+    nwg-look-bin
     swayidle
     hyprland
     wlogout
@@ -27,3 +27,5 @@
     mpv
     xdg-desktop-portal
     yay
+    ttf-firacode-nerd
+    ttf-cascadia-code
