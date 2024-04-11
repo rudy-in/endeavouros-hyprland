@@ -1,20 +1,16 @@
-//------Layout ------------------------------       
-{      
-       "layer": "top",
-       "position": "top",
-       "mod": "dock",
-       "exclusive": true,
-       "output": ["HDMI-A-1", "eDP-1", "DP-0", "DP-1",], // Which Monitor waybar opens on        
-       "passtrough": false,
-       "gtk-layer-shell": true,
-       "height": -14,       
-       "spacing": 0,
-       "margin-top": -2,
-       "margin-bottom": 0,
+//------Layout ------------------------------  
+{
+   "layer": "top",
+    "position": "top",
+    //"mode": "dock",
+    "exclusive": "true",
+    "passthrough": "false",
+    "height": "20",
+    "gtk-layer-shell": true,
        
     
   //--- Modules ------------------------------
-       "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/themeswitcher", "custom/outlook", "custom/chatgpt", "custom/calculator", "custom/dunst", "cpu", "custom/cputemp", "custom/memory", "custom/settings",],       
+       "modules-left": ["custom/launcher", "hyprland/workspaces", "custom/themeswitcher", "custom/settings", "custom/outlook", "custom/chatgpt", "custom/calculator", "custom/dunst", "cpu", "custom/cputemp", "custom/memory",],       
        "modules-center": ["hyprland/window",],
        "modules-right": ["tray", "custom/caffeine", "custom/updates", "network", "custom/traffic", "custom/language", "custom/cycle_wall", "custom/pipewire", "pulseaudio#microphone", "clock", "custom/power",],
        
@@ -29,19 +25,10 @@
         },
         "separate-outputs": true
         
-  
-  },
-  "custom/window-name": {
-  "format": "<b>{}</b>",
-  "max-length": 40,
-  "interval": 1,
-  "tooltip": false,
-  "exec": "hyprctl activewindow | grep class | awk '{print $2}' "      
-
-       
+      
             
-  },
-"clock": {
+    },        
+    "clock": {
         "format": " {:%R  %a,%d %b} ",
         "format-alt": " {:%H:%M} ",        
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
@@ -66,23 +53,15 @@
                     "on-scroll-up": "shift_up",
                     "on-scroll-down": "shift_down"
                     }
-  },
-  "actions":  {
-       "on-click-right": "mode",
-       "on-click-forward": "tz_up",
-       "on-click-backward": "tz_down",
-       "on-scroll-up": "shift_up",
-       "on-scroll-down": "shift_down"
-       }
            
   },
   "custom/launcher": {       
-       "format": "<span font='9'></span>",  
-       "on-click": "$HOME/.config/hypr/scripts/menu",
+       "format": "<span font='10'></span>",  
+       "on-click": "$HOME/.config/hypr/scripts/menu && pkill -RTMIN+8 waybar",      
        //"on-click": "$HOME/.config/hypr/scripts/rofi-menu",
-       "tooltip-format": "",
-       "signal": 8,
-       "tooltip": false
+       "tooltip-format": "",      
+       "tooltip": false,
+       "signal": 8
     
   },
   // Brave Launcher
@@ -93,17 +72,26 @@
        
   },
   "custom/themeswitcher": {
-       "format": "",
+       "format": "<span font='9'></span>",
        "on-click": "$HOME/.config/waybar/scripts/switch-waybar-config.sh",
        //"on-click": "$HOME/.config/waybar/scripts/switch-rofi-waybar-config.sh",
+       "tooltip-format": "",       
+       "tooltip": false,
+       "signal": 8
+       
+  },
+  "custom/settings": {
+       "format": "",
+       "on-click": "$HOME/.config/hypr/scripts/settings.sh",
+       //"on-click": "$HOME/.config/hypr/scripts/rofi-config-settings.sh",           
        "tooltip-format": "",
        "signal": 8,
-       "tooltip": false        
+       "tooltip": false             
     
   },
   // Outlook Launcher
   "custom/outlook": {
-       "format": "",
+       "format": "<span font='9'></span>",
        "on-click": "brave --app=https://outlook.com",
        "tooltip": false
        
@@ -117,7 +105,7 @@
   },
   // ChatGPT Launcher
   "custom/chatgpt": {
-       "format": "",
+       "format": "<span font='10'>󰭹</span>",
        "on-click": "brave --app=https://chat.openai.com",
        "tooltip": false
        
@@ -152,18 +140,18 @@
       "5": [],
       },
     "format-icons": {
-          "1": "",
-          "2": "",
-          "3": "",
-          "4": "",
-          "5": "",
-          "6": "",
-          "7": "",
-          "8": "",
-          "9": "",
-     "urgent": "",
-     "focused":"",
-      "default":""
+          "1": "<span font='9'></span>",
+          "2": "<span font='9'></span>",
+          "3": "<span font='9'></span>",
+          "4": "<span font='9'></span>",
+          "5": "<span font='9'></span>",
+          "6": "<span font='9'></span>",
+          "7": "<span font='9'></span>",
+          "8": "<span font='9'></span>",
+          "9": "<span font='9'></span>",
+     "urgent": "<span font='9'></span>",
+     "focused":"<span font='9'></span>",
+      "default":"<span font='9'></span>"
          
       
   },
@@ -223,8 +211,8 @@
 //      "exec": "(checkupdates ; yay -Qua --noconfirm) | wc -l",
 //      "exec-if": "exit 0", 
 //      "interval": 900,
-//      "format": "<span font='10' rise='1000'></span> {}",
-//      "on-click": "kitty --title 'Updates' sh -c 'sudo pacman -Syu && yay -Syu --noconfirm && ~/.config/waybar/scripts/uparch.sh && pkill -RTMIN+8 waybar'",
+//      "format": "<span font='10' rise='1000'>󰏔</span> {}",
+//      "on-click": "kitty --title 'Updates' sh -c 'sudo pacman -Syu && yay -Syu --noconfirm && ~/.config/waybar/scripts/updates.sh && pkill -RTMIN+8 waybar'",
 //      "signal": 8,
 //      "tooltip": false
       
@@ -232,8 +220,8 @@
    "custom/updates": {
         "exec": "~/.config/waybar/scripts/updates.sh",
         "exec-if": "exit 0",
-        "interval": 900,      
-        "format": "<span font='8' rise='1000'></span>{}",
+        "interval": 300,      
+        "format": "<span font='10' rise='1000'>󰏔 </span>{}",
         "on-click": "kitty --title 'Updates' sh -c 'sudo pacman -Syu && yay -Syu --noconfirm && ~/.config/waybar/scripts/updates.sh && pkill -RTMIN+8 waybar'",
         "signal": 8,
         "tooltip": false       
@@ -254,17 +242,6 @@
       "exec": "~/.config/waybar/scripts/network_traffic.sh enp3s0",
       //"return-type": "json",
       //"format": " Speed: {}",    // optional
-   
-  
-  },
-  "custom/settings": {
-       "format": " ",
-       "on-click": "$HOME/.config/hypr/scripts/settings.sh",
-       //"on-click": "$HOME/.config/hypr/scripts/rofi-config-settings.sh",
-       "signal": 8,    
-       "tooltip-format": "",
-       "tooltip": false
-     
 
   },
   "custom/language": {
@@ -279,18 +256,25 @@
       "tooltip": false,
       "max-length": 8,
       "exec": "$HOME/.config/waybar/scripts/pipewire.sh", // script cause higher cpuload and higher cpu-temp
-      "on-click": "~/.config/hypr/scripts/volume_ctl.sh mute",      
-      "on-click-right": "kitty --class update -T update -e pulsemixer",
+      "on-click": ".config/waybar/scripts/mute_toggle.sh",
+      "on-click-right": "pavucontrol-qt",      
+       /*"on-click-right": "kitty --class update -T update -e pulsemixer",*/
+      "on-scroll-up": "~/.config/hypr/scripts/volume_ctl.sh up",
+      "on-scroll-down": "~/.config/hypr/scripts/volume_ctl.sh down",
+      "scroll-step": 5,
       "tooltip": false
     
   },
   "pulseaudio": {
       "format": "{icon} {volume}%",
-      "format-muted": "ﱝ Muted",
+      "format-muted": " Muted",
       "tooltip": true,
-      "on-click": "~/.config/hypr/scripts/volume_ctl.sh mute",
-      "on-click-right": "kitty --class update -T update -e pulsemixer",
-      "scroll-step": 1,
+      "on-click": ".config/waybar/scripts/mute_toggle.sh",
+      "on-click-right": "pavucontrol-qt",
+      /*"on-click-right": "kitty --class update -T update -e pulsemixer",*/
+      "on-scroll-up": "bash ~/.config/hypr/scripts/volume_ctl.sh up",
+      "on-scroll-down": "bash ~/.config/hypr/scripts/volume_ctl.sh down",
+      "scroll-step": 5,
       "format-icons": {
       "headphone": "",
       "hands-free": "",
@@ -298,45 +282,19 @@
       "phone": "",
       "portable": "",
       "car": "",
-      "default": ["", "", "墳", ""]
+      "default": ["", "", "", ""]
       }   
           
-  },
-  "pulseaudio#microphone": {
-      "format": "{format_source}",
-      "tooltip": true,
-      "on-scroll-up": "shift_up",
-      "on-scroll-down": "shift_down",
-      "format-source": " {volume}%",
-      "format-source-muted": " Muted",
-      "on-click": "pamixer --default-source -t",
-      "on-scroll-up": "pamixer --default-source -i 5",
-      "on-scroll-down": "pamixer --default-source -d 5",
-      "scroll-step": 5
-    
-  },
-  "battery": {
-      "states": {
-      "good": 95,
-      "warning": 30,
-      "critical": 20
-  },
-      "format": "{icon}   {capacity}%",
-      "format-charging": " {capacity}%",
-      "format-plugged": " {capacity}%",
-      "format-alt": "{time} {icon}",    
-      "format-icons": ["", "", "", "", ""],
-      "tooltip": true 
-          
-  },
-  "backlight": {
-      "device": "intel_backlight",
-      "format": "{icon} {percent}%",
-      "format-icons": ["", "", ""],
-      "on-scroll-up": "brightnessctl set 1%+",
-      "on-scroll-down": "brightnessctl set 1%-",
-      "tooltip": false,
-      "min-length": 6
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "~/.config/hypr/scripts/volume_ctl.sh mute",
+        "on-click-right": "pavucontrol-qt",
+        "on-scroll-up": "~/.config/hypr/scripts/volume_ctl.sh up",
+        "on-scroll-down": "~/.config/hypr/scripts/volume_ctl.sh down",    
+        "scroll-step": 5
   
   },
   "custom/cycle_wall":{     
@@ -349,14 +307,15 @@
   "custom/dunst": {
     "exec": "~/.config/waybar/scripts/notifications",
     "on-click": "dunstctl set-paused toggle",
-    "restart-interval": 1,           
+    "restart-interval": 1,
+    "tooltip": false           
         
   },    
   "custom/power": {
       "format": "<span font='9' rise='1000'></span>",      
-      "on-click": "~/.config/hypr/scripts/logout.sh",
-      "signal": 8,
+      "on-click": "~/.config/hypr/scripts/logout.sh && pkill -RTMIN+8 waybar",      
       "tooltip": false,
+      "signal": 8
       
   },    
   "custom/space": {

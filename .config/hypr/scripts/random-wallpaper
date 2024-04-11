@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Stop swaybg if running
+if [[ $(pidof swaybg) ]]; then
+  pkill swaybg
+fi
+
+# Initialize swww if not already initialized
+swww query || swww init
+
+# Command to set random wallpapers with transitions every 3 minutes
+while true; do
+    swww img "$HOME/Pictures/wallpapers-redblizard/$(ls "$HOME/Pictures/wallpapers-redblizard" | shuf -n 1)" --transition-step 20 --transition-fps 20
+    sleep 180
+done

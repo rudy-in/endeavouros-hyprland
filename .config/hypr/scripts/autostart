@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Execute scripts specific to Hyprland configuration
+
+~/.config/hypr/scripts/reset_xdgportals.sh &
+~/.config/hypr/scripts/monitors.sh &
+~/.config/hypr/scripts/monitor_workspaces_configurator.sh &
+~/.config/hypr/scripts/import-gsettings.sh &
+~/.config/hypr/scripts/chmod_scripts.sh &
+~/.config/hypr/scripts/nvidia_gpu_check.sh &
+~/.config/hypr/scripts/kvm-qemu.sh &
+~/.config/hypr/scripts/unlock-pacman.sh &
+~/.config/waybar/scripts/baraction.sh &
+~/.config/waybar/scripts/update_waybar_network-device.sh &
+~/.config/hypr/scripts/random-wallpaper &
+# ~/.config/hypr/scripts/changeWallpaper2 & # Uncomment this line if needed
+~/.config/waybar/scripts/caffeine_swaylock.sh &
+#~/.config/waybar/scripts/firewall-applet.sh &
+
+# Additional Hyprland-specific commands
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+echo us > /tmp/kb_layout &
+systemctl --user restart pipewire &
+wl-paste --type text --watch cliphist store &
+wl-paste --type image --watch cliphist store &
+dunst &
+# wlsunset -S 8:09 -s 17:40 & # Uncomment this line if needed
+# blueman-applet &  # Uncomment this line if needed
+udev-block-notify &
+udiskie &
+
+# End of autostart script
