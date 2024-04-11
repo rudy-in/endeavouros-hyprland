@@ -23,6 +23,14 @@ PACKAGES=(
     thunar
     thunar-archive-plugin
     thunar-volman
+    adobe-base-14-fonts
+    ttf-bitstream-vera
+    ttf-dejavu
+    ttf-liberation
+    ttf-nerd-fonts-symbols-mono
+    ttf-noto-nerd
+    ttf-opensans
+    ttf-font-awesome
     sddm
     eos-sddm-theme
     xdg-desktop-portal-hyprland
