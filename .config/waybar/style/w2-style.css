@@ -9,12 +9,6 @@
  * by Redblizard (2023) 
  * ----------------------------------------------------- 
 */
-
-/* -----------------------------------------------------
- * Import Pywal colors 
- * ----------------------------------------------------- */
-@import 'colors-waybar.css';
-
 /* -----------------------------------------------------
  * General 
  * ----------------------------------------------------- */
@@ -22,7 +16,7 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: Awesome6, redblizard001, Roboto, Helvetica, monospace, sans-serif;
+    font-family: FontAwesome, Roboto, Helvetica, monospace, sans-serif;
     font-weight: bold;
     font-size: 12px;    
     padding: 0;
@@ -32,7 +26,7 @@
 }
 
 window#waybar {
-    background-color: rgba(46, 52, 64, 0.4);
+    background-color: rgba(46, 52, 64, 0.0);
     transition-property: background-color;    
     transition-duration: .5s;
 }
@@ -91,12 +85,12 @@ tooltip {
 #clock {
     color: #CA9EE6;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    border-radius: 10px;
+    border-radius: 10px;    
     margin-top: 14px;
     margin-bottom: 15px;
     border-left: 5px;
     border-right: 5px;
-    margin-left: 15px;
+    margin-left: 20px;
     margin-right: 0px;
     padding-right: 10px;
     padding-left: 10px;
@@ -108,7 +102,7 @@ tooltip {
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
     border-radius: 10px 0px 0px 10px;   
     padding-right: 5px;
-    padding-left: 15px;
+    padding-left: 10px;
     margin-top: 14px;
     margin-bottom: 15px;
     border-left: 5px;
@@ -121,7 +115,6 @@ tooltip {
 #custom-brave {
     color: #d8dee9;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
-    padding: 5 5 5 10px;
     margin-top: 14px;
     margin-bottom: 15px;
     border-left: 5px;
@@ -133,9 +126,8 @@ tooltip {
 
 #custom-themeswitcher {
     color: #d8dee9;
-    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);       
-    padding: 5 5 5 10px;
-    padding-right: 10px;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
+    padding-right: 5px;
     padding-left: 10px;
     margin-top: 14px;
     margin-bottom: 15px;
@@ -146,10 +138,26 @@ tooltip {
 
 }
 
+#custom-settings {
+    color: #d8dee9;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
+    margin-top: 14px;
+    margin-bottom: 15px;
+    margin-left: 0px;
+    margin-right: 0px;     
+    border-left: 0px;
+    border-right: 0px;
+    padding-right: 5px;
+    padding-left: 5px;
+    border: #39404f;
+    
+    
+}
+
 #custom-outlook {
     color: #d8dee9;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
-    padding: 5 5 5 10px;
+    padding-right: 5px;
     margin-top: 14px;
     margin-bottom: 15px;
     border-left: 0px;
@@ -162,7 +170,7 @@ tooltip {
 #custom-teams {
     color: #d8dee9;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
-    padding: 5 5 5 10px;
+    padding-right: 10px;
     margin-top: 14px;
     margin-bottom: 15px;
     border-left: 5px;
@@ -174,8 +182,8 @@ tooltip {
 
 #custom-chatgpt {
     color: #d8dee9;
-    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
-    padding: 5 5 5 10px;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);     
+    padding-right: 5px;
     margin-top: 14px;
     margin-bottom: 15px;
     border-left: 5px;
@@ -187,10 +195,9 @@ tooltip {
 
 #custom-calculator {
     color: #d8dee9;
-    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);       
-    padding: 5 5 5 10px;
-    padding-right: 5px;
-    padding-left:  5px; 
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
+    padding-right: 10px;
+    padding-left:  10px; 
     margin-top: 14px;
     margin-bottom: 15px; 
     margin-left: 0px;
@@ -236,7 +243,7 @@ tooltip {
     border-radius: 0px 10px 10px 0px;
     padding: 5 5 5 10px;
     padding-right: 5px;
-    padding-left:  5px; 
+    padding-left:  0px; 
     margin-top: 14px;
     margin-bottom: 15px; 
     margin-left: 0px;
@@ -249,8 +256,9 @@ tooltip {
 
 #cpu {
     color: #8CAAEE;
-    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);       
-    border-radius: 10px;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
+    font-family: monospace;       
+    border-radius: 10px;    
     margin-left: 5px;
     margin-right: 0px;
     margin-top: 14px;
@@ -265,7 +273,7 @@ tooltip {
 #custom-cputemp {
     color: #85C1DC;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
-    border-radius: 10px;
+    border-radius: 10px;    
     margin-left: 5px;
     margin-right: 0px;
     margin-top: 14px;
@@ -279,7 +287,7 @@ tooltip {
 #custom-memory {
     color: #81C8BE;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);    
-    border-radius: 10px;
+    border-radius: 10px;    
     margin-left: 5px;
     margin-right: 5px;
     margin-top: 14px;
@@ -289,20 +297,6 @@ tooltip {
  
     
 }
-
-#custom-settings {
-    color: #d8dee9;
-    background: none;
-    margin-top: 14px;
-    margin-bottom: 15px;
-    margin-right: 0px;
-    border-left: 0px;
-    border-right: 0px;
-    padding-right: 0px;
-    padding-left: 2px;
-    border: none;
-
-}   
 
 #taskbar {
     border-radius: 10px;
@@ -348,30 +342,29 @@ tooltip {
 }
 
 #tray {    
-    background: none;
+    background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%); 
     border-radius: 10px;
     margin-top: 14px;
     margin-bottom: 15px;
     margin-left: 0px;
-    margin-right: 5px;
-    border: none;     
+    margin-right: 5px;     
     border-left: 0px;
     border-right: 0px;
-    padding-right: 5px;
-    padding-left: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
 
-}
+}    
 
 #custom-caffeine {
     color: #F2D5CF;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    border-radius: 10px 0px 0px 10px;     
+    border-radius: 10px 0px 0px 10px;            
     margin-top: 14px;
     margin-bottom: 15px;
     margin-left: 0px;     
     border-left: 0px;
     border-right: 0px;
-    padding-right: 0px;
+    padding-right: 5px;
     padding-left: 10px;
 
 }
@@ -379,7 +372,7 @@ tooltip {
 #custom-updates {
     color: #EEBEBE;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    border-radius: 0px 10px 10px 0px; 
+    border-radius: 0px 10px 10px 0px;   
     margin-top: 14px;
     margin-bottom: 15px;
     margin-left: 0px;
@@ -394,7 +387,7 @@ tooltip {
 #network {
     color: #EF9F76;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    border-radius: 10px 0px 0px 10px;     
+    border-radius: 10px 0px 0px 10px;      
     margin-top: 14px;
     margin-bottom: 15px;
     margin-left: 0px;     
@@ -408,7 +401,8 @@ tooltip {
 #custom-traffic {
     color: #E78284;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    border-radius: 0px 10px 10px 0px; 
+    border-radius: 0px 10px 10px 0px;
+    font-family: monospace;   
     margin-top: 14px;
     margin-bottom: 15px;
     margin-left: 0px;
@@ -423,7 +417,7 @@ tooltip {
 #custom-language {
     color: #BA5DEE;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    border-radius: 10px 0px 0px 10px; 
+    border-radius: 10px 0px 0px 10px;    
     margin-top: 14px;
     margin-bottom: 15px;
     margin-left: 0px;
@@ -438,7 +432,7 @@ tooltip {
 #custom-cycle_wall {
     color: #CA9EE6;   
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%); 
-    border-radius: 0px 10px 10px 0px; 
+    border-radius: 0px 10px 10px 0px;    
     margin-top: 14px;
     margin-bottom: 15px;
     margin-left: 0px;
@@ -454,7 +448,7 @@ tooltip {
 #custom-pipewire {
     color: #7CB6F5;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    border-radius: 10px 0px 0px 10px; 
+    border-radius: 10px 0px 0px 10px;     
     margin-top: 14px;
     margin-bottom: 15px;
     margin-left: 0px;     
@@ -482,7 +476,7 @@ tooltip {
 #pulseaudio.microphone {
     color: #85C1DC;  
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    border-radius: 0px 10px 10px 0px; 
+    border-radius: 0px 10px 10px 0px;      
     margin-top: 14px;
     margin-bottom: 15px;
     margin-left: 0px;
@@ -497,7 +491,8 @@ tooltip {
 #battery {
     color: #95D189;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%); 
-    border-radius: 10px 0px 0px 10px;    
+    border-radius: 10px 0px 0px 10px; 
+    font-family: Awesome6;       
     margin-top: 14px;
     margin-bottom: 15px;
     margin-left: 0px;
@@ -509,31 +504,47 @@ tooltip {
 
     
 }
+
+@keyframes blink {
+    to {
+        color: #D20F39;
+        /* border-bottom: 2px solid @red; */
+    }
+}
     
 #battery.charging {
     color: #fab387;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+       
 }
 
 #battery.discharging {
     color: #F38BA8;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+ 
     
 }
 
 #battery.warning:not(.charging) {
     color: #F38BA8;
     background: linear-gradient(85deg, #39404f 5%, #39404f 45%, #39404f 75%);
-    animation-name:             blink;
-    animation-duration:         0.5s;
-    animation-timing-function:  linear;
-    animation-iteration-count:  infinite;
-    animation-direction:        alternate;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
     
-}    
-     
+}     
 
 #backlight {
     color: #E5C890;   
