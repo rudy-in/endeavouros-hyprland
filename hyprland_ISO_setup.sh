@@ -192,8 +192,6 @@ function install_neovim() {
 install_neovim
 # -------------------------------------
 
-
-
 # -------------------------------------
 #       shell coices for users
 # -------------------------------------
@@ -227,6 +225,45 @@ function shell_choice() {
     echo "Successfully installed and changed to $shell shell."
 }
 shell_choice
+
+# -------------------------------------
+
+# -------------------------------------
+#       starship promt for terminal
+# -------------------------------------
+
+
+function starship_prompt() {
+    echo "Do you want starship prompt in your shell: "
+    echo "1. yes"
+    echo "2. no"
+
+    read -p "Enter the number corresponding to your choice: " response
+
+    case $response in
+    1)
+        if [[ $SHELL = "/bin/bash" ]]; then
+            echo 'eval "$(starship init bash)"' >>$HOME/.bashrc
+
+        elif [[ $SHELL = "/bin/zsh" ]]; then
+            echo 'eval "$(starship init zsh)"' >>$HOME/.zshrc
+
+        elif [[ $SHELL = "/bin/fish" ]]; then
+            echo 'starship init fish | source' >>$HOME/.config/fish/config.fish
+
+        fi
+        ;;
+    2)
+        echo "Exiting.."
+        return 1
+        ;;
+    *)
+        echo "Invalid choice. Exiting."
+        return 1
+        ;;
+    esac
+}
+starship_prompt
 
 # -------------------------------------
 
