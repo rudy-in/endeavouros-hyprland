@@ -254,6 +254,7 @@ function starship_prompt() {
         fi
         ;;
     2)
+        rm $HOME/.config/starship.toml
         echo "Exiting.."
         return 1
         ;;
