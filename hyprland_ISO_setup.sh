@@ -22,8 +22,7 @@ PACKAGES=(
     qt5ct
     thunar
     thunar-archive-plugin
-    thunar-volman
-    adobe-base-14-fonts
+    thunar-volman    
     ttf-bitstream-vera
     ttf-dejavu
     ttf-liberation
