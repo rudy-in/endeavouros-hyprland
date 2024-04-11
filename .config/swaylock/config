@@ -1,0 +1,39 @@
+# indicator
+# no-unlock-indicator
+daemonize
+hide-keyboard-layout
+indicator-caps-lock
+# datestr=%A
+image=$HOME/.config/swaylock/image/swaylock.png
+scaling=fill
+font=UbuntuMono
+font-size=20
+# Ring
+indicator-radius=167
+indicator-thickness=23
+# line-uses
+line-color=#1f1d2e
+text-color=#d8dee9
+inside-color=#2e344098
+text-wrong-color=#FD807E
+inside-wrong-color=1f1d2e
+ring-wrong-color=#FD807E
+line-wrong-color=#FD807E
+inside-ver-color=1f1d2e
+ring-ver-color=#7f7fff
+text-ver-color=#7f7fff
+inside-clear-color=1f1d2e
+text-clear-color=#5e81ac
+ring-clear-color=#5e81ac
+ring-color=#A24D6A
+key-hl-color=#5e81ac
+separator-color=00000000
+layout-text-color=#eceff4
+line-wrong-color=#1f1d2e
+grace=2
+grace-no=mouse
+grace-no=touch
+ignore-empty=password
+
+
+
