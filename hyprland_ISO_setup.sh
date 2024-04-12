@@ -22,7 +22,14 @@ PACKAGES=(
     qt5ct
     thunar
     thunar-archive-plugin
-    thunar-volman
+    thunar-volman    
+    ttf-bitstream-vera
+    ttf-dejavu
+    ttf-liberation
+    ttf-nerd-fonts-symbols-mono
+    ttf-noto-nerd
+    ttf-opensans
+    ttf-font-awesome
     sddm
     eos-sddm-theme
     xdg-desktop-portal-hyprland

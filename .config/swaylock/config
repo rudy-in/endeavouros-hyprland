@@ -4,7 +4,7 @@ daemonize
 hide-keyboard-layout
 indicator-caps-lock
 # datestr=%A
-image=$HOME/.config/hypr/swaylock.png
+image=$HOME/.config/swaylock/image/swaylock.png
 scaling=fill
 font=UbuntuMono
 font-size=20

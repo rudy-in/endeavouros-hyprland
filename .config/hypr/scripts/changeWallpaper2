@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR=$HOME/.config/hypr/backgrounds
+DIR=$HOME/Pictures/wallpapers-redblizard/
 PICS=($(ls ${DIR}))
 
 RANDOMPICS=${PICS[ $RANDOM % ${#PICS[@]} ]}
