@@ -9,12 +9,12 @@ PACKAGES=(
     git
     wofi
     waybar
-    neofetch
+    fastfetch
     network-manager-applet
     networkmanager-dmenu-bluetoothfix-git
-    swaylock    
+    swaylock
     awesome-terminal-fonts
-    nwg-look-bin       
+    nwg-look-bin
     swayidle
     hyprland
     wlogout
@@ -79,22 +79,22 @@ echo "4. Microsoft Edge"
 read -p "Enter the number corresponding to your choice: " choice
 
 case $choice in
-    1)
-        browser="chromium"
-        ;;
-    2)
-        browser="firefox"
-        ;;
-    3)
-        browser="brave-bin"
-        ;;
-    4)
-        browser="microsoft-edge-dev-bin"
-        ;;
-    *)
-        echo "Invalid choice. Exiting."
-        exit 1
-        ;;
+1)
+    browser="chromium"
+    ;;
+2)
+    browser="firefox"
+    ;;
+3)
+    browser="brave-bin"
+    ;;
+4)
+    browser="microsoft-edge-dev-bin"
+    ;;
+*)
+    echo "Invalid choice. Exiting."
+    exit 1
+    ;;
 esac
 
 echo "Installing $browser..."
@@ -110,27 +110,25 @@ echo "Select a terminal to install:"
 echo "1. Alacritty"
 echo "2. Kitty"
 
-
 read -p "Enter the number corresponding to your choice: " choice
 
 case $choice in
-    1)
-        terminal="alacritty"
-        ;;
-    2)
-        terminal="kitty"
-        ;;
-    *)
-        echo "Invalid choice. Exiting."
-        exit 1
-        ;;
+1)
+    terminal="alacritty"
+    ;;
+2)
+    terminal="kitty"
+    ;;
+*)
+    echo "Invalid choice. Exiting."
+    exit 1
+    ;;
 esac
 
 echo "Installing $terminal..."
 yay -S $terminal
 
 echo "Installation complete!"
-
 
 # ------------------------------------------------------
 # Install nwg-look-bin
@@ -154,7 +152,7 @@ fi
 
 # Backup and copy .config folder
 
-folders=("alacritty" "btop" "cava" "dunst" "hypr" "kitty" "neofetch" "networkmanager-dmenu" "qt5ct" "sddm-config-editor" "swaylock" "Thunar" "waybar" "wlogout" "wofi" "xsettingsd" "gtk-3.0")
+folders=("alacritty" "btop" "cava" "dunst" "hypr" "kitty" "fastfetch" "networkmanager-dmenu" "qt5ct" "sddm-config-editor" "swaylock" "Thunar" "waybar" "wlogout" "wofi" "xsettingsd" "gtk-3.0")
 
 for folder in "${folders[@]}"; do
     folder_path="/home/$username/.config/$folder"
@@ -168,7 +166,115 @@ backup "/home/$username/.local"
 cp -R .local /home/$username/
 
 backup "/home/$username/.icons"
-cp -R .icons /home/$username/    
+cp -R .icons /home/$username/
+
+# ----------------------------------
+#       for neovim setup
+# ----------------------------------
+function install_neovim() {
+    echo "Do you want NeoVim as text-editor : "
+    echo "1. Yes"
+    echo "2. No"
+
+    read -p "Enter the number corresponding to your choice: " response
+
+    case $response in
+    1)
+        nvim="neovim"
+        ;;
+    2)
+        echo "Exiting."
+        return 1
+        ;;
+    *)
+        echo "Invalid choice. Exiting."
+        return 1
+        ;;
+    esac
+
+    yay -S $nvim
+    git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+    echo "REMINDER : After reboot open terminal and type nvim for post installation of neovim"
+}
+install_neovim
+# -------------------------------------
+
+# -------------------------------------
+#       shell coices for users
+# -------------------------------------
+
+function shell_choice() {
+    echo "Which shell do you want to use :"
+    echo "1. bash (Already installed)"
+    echo "2. zsh (An extended version of the Bourne Shell)"
+    echo "3. fish (A smart and user-friendly command line shell )"
+
+    read -p "Enter the number corresponding to your choice: " response
+
+    case $response in
+    1)
+        echo "Exiting."
+        return 1
+        ;;
+    2)
+        shell="zsh"
+        ;;
+    3)
+        shell="fish"
+        ;;
+    *)
+        echo "Invalid choice. Exiting."
+        return 1
+        ;;
+    esac
+    yay -S $shell
+    chsh -s /bin/$shell
+    echo "Successfully installed and changed to $shell shell."
+}
+shell_choice
+
+# -------------------------------------
+
+# -------------------------------------
+#       starship promt for terminal
+# -------------------------------------
+
+
+function starship_prompt() {
+    echo "Do you want starship prompt in your shell: "
+    echo "1. yes"
+    echo "2. no"
+
+    read -p "Enter the number corresponding to your choice: " response
+
+    case $response in
+    1)
+        if [[ $SHELL = "/bin/bash" ]]; then
+            echo 'eval "$(starship init bash)"' >>$HOME/.bashrc
+
+        elif [[ $SHELL = "/bin/zsh" ]]; then
+            echo 'eval "$(starship init zsh)"' >>$HOME/.zshrc
+
+        elif [[ $SHELL = "/bin/fish" ]]; then
+            echo 'starship init fish | source' >>$HOME/.config/fish/config.fish
+
+        fi
+        ;;
+    2)
+        rm $HOME/.config/starship.toml
+        echo "Exiting.."
+        return 1
+        ;;
+    *)
+        echo "Invalid choice. Exiting."
+        return 1
+        ;;
+    esac
+}
+starship_prompt
+
+# -------------------------------------
+
 
 echo "Installation complete."
 chmod +x /home/$username/.config/hypr/scripts
@@ -188,5 +294,5 @@ clear
 echo "Installation complete Welcome to your new destiny!"
 cd /
 
-sleep 30 
+sleep 30
 reboot

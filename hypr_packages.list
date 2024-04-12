@@ -1,31 +1,31 @@
-    alacritty
-    btop
-    htop
-    brave-bin
-    cava
-    glances
-    git
-    wofi
-    waybar
-    neofetch
-    network-manager-applet
-    networkmanager-dmenu-bluetoothfix-git
-    swaylock    
-    awesome-terminal-fonts
-    nwg-look-bin       
-    swayidle
-    hyprland
-    wlogout
-    swww
-    kitty
-    qt5ct
-    thunar
-    thunar-archive-plugin
-    thunar-volman
-    sddm
-    eos-sddm-theme
-    xdg-desktop-portal-hyprland
-    xed
-    mpv
-    xdg-desktop-portal
-    yay
+alacritty
+btop
+htop
+cava
+glances
+git
+wofi
+waybar
+fastfetch
+network-manager-applet
+networkmanager-dmenu-bluetoothfix-git
+swaylock
+awesome-terminal-fonts
+nwg-look-bin
+swayidle
+hyprland
+wlogout
+swww
+qt5ct
+thunar
+thunar-archive-plugin
+thunar-volman
+sddm
+eos-sddm-theme
+xdg-desktop-portal-hyprland
+xed
+mpv
+xdg-desktop-portal
+yay
+ttf-firacode-nerd
+ttf-cascadia-code
