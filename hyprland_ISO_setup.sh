@@ -249,6 +249,7 @@ function starship_prompt() {
 
     case $response in
     1)
+        yay -S starship
         if [[ $SHELL = "/bin/bash" ]]; then
             echo 'eval "$(starship init bash)"' >>$HOME/.bashrc
 
