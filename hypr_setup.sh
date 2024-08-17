@@ -22,7 +22,7 @@ PACKAGES=(
     qt5ct
     thunar
     thunar-archive-plugin
-    thunar-volman    
+    thunar-volman
     ttf-bitstream-vera
     ttf-dejavu
     ttf-liberation
@@ -239,7 +239,6 @@ shell_choice
 #       starship promt for terminal
 # -------------------------------------
 
-
 function starship_prompt() {
     echo "Do you want starship prompt in your shell: "
     echo "1. yes"
@@ -249,6 +248,8 @@ function starship_prompt() {
 
     case $response in
     1)
+        yay -S starship --noconfirm
+        
         if [[ $SHELL = "/bin/bash" ]]; then
             echo 'eval "$(starship init bash)"' >>$HOME/.bashrc
 
@@ -274,7 +275,6 @@ function starship_prompt() {
 starship_prompt
 
 # -------------------------------------
-
 
 echo "Installation complete."
 chmod +x /home/$username/.config/hypr/scripts

@@ -2,8 +2,8 @@
 
 font:
   normal:
-    family: Monospace
+    family: FiraCode nerd font
     style: Regular
-  size: 12.0
+  size: 11.0
 
 background_opacity: 0.8
