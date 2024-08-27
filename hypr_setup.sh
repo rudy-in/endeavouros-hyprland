@@ -233,7 +233,6 @@ function shell_choice() {
 }
 shell_choice
 
-# -------------------------------------
 
 # -------------------------------------
 #       starship promt for terminal
