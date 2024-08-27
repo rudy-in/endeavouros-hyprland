@@ -274,9 +274,7 @@ function starship_prompt() {
 }
 starship_prompt
 
-# -------------------------------------
 
-# MARK: setting alias
 # -------------------------------------
 #       setting alias
 # -------------------------------------
