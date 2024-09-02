@@ -193,7 +193,7 @@ function install_neovim() {
     esac
 
     yay -S $nvim
-    git clone https://github.com/nvim-lua/kickstart.nvim.git "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim
+    git clone https://github.com/NvChad/starter "${XDG_CONFIG_HOME:-$HOME/.config}"/nvim 
     echo "REMINDER : After reboot open terminal and type nvim for post installation of neovim"
 }
 install_neovim
@@ -233,7 +233,6 @@ function shell_choice() {
 }
 shell_choice
 
-# -------------------------------------
 
 # -------------------------------------
 #       starship promt for terminal
@@ -249,7 +248,7 @@ function starship_prompt() {
     case $response in
     1)
         yay -S starship --noconfirm
-        
+
         if [[ $SHELL = "/bin/bash" ]]; then
             echo 'eval "$(starship init bash)"' >>$HOME/.bashrc
 
@@ -273,6 +272,27 @@ function starship_prompt() {
     esac
 }
 starship_prompt
+
+
+# -------------------------------------
+#       setting alias
+# -------------------------------------
+function custom_alias() {
+    if [[ $SHELL = "/bin/bash" ]]; then
+        echo 'alias vim = nvim' >>$HOME/.bashrc
+        echo 'alias vi = nvim' >>$HOME/.bashrc
+
+    elif [[ $SHELL = "/bin/zsh" ]]; then
+        echo 'alias vim = nvim' >>$HOME/.zshrc
+        echo 'alias vi = nvim' >>$HOME/.zshrc
+
+    elif [[ $SHELL = "/bin/fish" ]]; then
+        echo 'alias vi "nvim"' >>$HOME/.config/fish/config.fish
+        echo 'alias vim "nvim"' >>$HOME/.config/fish/config.fish
+
+    fi
+}
+custom_alias
 
 # -------------------------------------
 
