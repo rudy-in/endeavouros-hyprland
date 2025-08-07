@@ -1,3 +1,6 @@
+# [UNMAINTAINED]
+
+
 <h1 align="center" style="color: #0056b3;">Welcome to EndeavourOS Hyprland</h1>
 <hr>
 
